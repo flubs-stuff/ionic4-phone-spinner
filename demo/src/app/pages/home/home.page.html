@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Demo: ionic4-phone-spinner
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <h3>Select a difficulty</h3>
+
+    <button *ngFor="let d of difficulties"
+            type="button"
+            class="ripple"
+            [ngClass]="{ 'selected-difficulty': d === difficulty }"
+            (click)="difficulty = d">
+      {{ d }}
+    </button>
+  </div>
+
+  <div *ngIf="difficulty === 'bad'">
+    <h4 style="margin-left: 10px;">
+      Enter your phone number:
+    </h4>
+
+    <ionic4-phone-spinner
+            [number]="value"
+            [options]="badOptions"
+            (change)="change($event)">
+    </ionic4-phone-spinner>
+  </div>
+
+  <div *ngIf="difficulty === 'badder'">
+    <h4 style="margin-left: 10px;">
+      Try to enter your phone number:
+    </h4>
+
+    <ionic4-phone-spinner
+            [number]="value"
+            [options]="badderOptions"
+            (change)="change($event)">
+    </ionic4-phone-spinner>
+  </div>
+
+  <div *ngIf="difficulty === 'baddest'">
+    <h4 style="margin-left: 10px;">
+      You will never enter your phone number:
+    </h4>
+
+    <ionic4-phone-spinner
+            [number]="value"
+            [options]="baddestOptions"
+            (change)="change($event)">
+    </ionic4-phone-spinner>
+  </div>
+
+  <div *ngIf="difficulty === 'satan'">
+    <h4 style="margin-left: 10px;">
+      Good luck, fucker:
+    </h4>
+
+    <ionic4-phone-spinner
+            [number]="value"
+            [options]="fuOptions"
+            (change)="change($event)">
+    </ionic4-phone-spinner>
+  </div>
+</ion-content>

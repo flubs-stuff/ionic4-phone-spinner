@@ -1,23 +1,40 @@
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgxBadPhoneSpinnerModule } from 'ionic4-phone-spinner';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
+import {RouteReuseStrategy} from '@angular/router';
+
+import {IonicModule, IonicRouteStrategy} from '@ionic/angular';
+
+import {BrowserModule} from '@angular/platform-browser';
+import {HttpClientModule} from '@angular/common/http';
+import {SplashScreen} from '@ionic-native/splash-screen/ngx';
+import {StatusBar} from '@ionic-native/status-bar/ngx';
+
+import {AppComponent} from './app.component';
+
+import {AppRoutingModule} from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
+  entryComponents: [],
+  exports: [],
   imports: [
+    AppRoutingModule,
     BrowserModule,
-    FormsModule,
-    NgxBadPhoneSpinnerModule,
-    ReactiveFormsModule
+    HttpClientModule,
+    IonicModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    {
+      provide:  RouteReuseStrategy,
+      useClass: IonicRouteStrategy
+    },
+    SplashScreen,
+    StatusBar
+  ],
   bootstrap: [
     AppComponent
   ]
 })
-export class AppModule { }
+export class AppModule {}
