@@ -1,0 +1,39 @@
+# Temp - Remove build
+# www/
+!*.js
+!*.map
+!*.d.ts
+# Temp - Remove build
+
+*~
+*.log
+*.sublime-project
+*.sublime-workspace
+*.sw[mnpcod]
+*.tmp
+*.tmp.*
+.vscode/
+src/assets/config.json
+log.txt
+npm-debug.log*
+package-lock.json
+composer.lock
+
+.idea/
+.ionic/
+.sourcemaps/
+.sass-cache/
+.tmp/
+.versions/
+coverage/
+node_modules/
+tmp/
+temp/
+platforms/
+plugins/
+plugins/android.json
+plugins/ios.json
+$RECYCLE.BIN/
+
+.DS_Store
+Thumbs.db
