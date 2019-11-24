@@ -1,4 +1,5 @@
 export enum LockOptions {
+  DIFFERENT = 'different',
   IGNORE = 'ignore',
   LIAR = 'liar',
   MANUAL = 'manual',
