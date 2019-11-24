@@ -1,0 +1,85 @@
+<ion-row>
+  <ion-col *ngIf="hasDeclineButton()"
+           [size]="getSize()"
+           [sizeLg]="getSizeLg()">
+    <ion-button id="{{ declineButtonId }}"
+                class="decline-button"
+                [fill]="'outline'"
+                [size]="'full'"
+                (click)="declineClick()"
+                [disabled]="declineDisabled">
+      <ion-icon *ngIf="declineIcon !== null"
+                [slot]="declineIconSlot"
+                [src]="declineIcon"></ion-icon>
+
+      <ion-text [slot]="'start'">
+        {{ declineActive ?
+        (
+          declineActiveText.length === 0 ? declineText : declineActiveText
+        ) : declineText
+        }}
+      </ion-text>
+    </ion-button>
+  </ion-col>
+
+  <ion-col *ngIf="!dynamicPositioning && !hasDeclineButton()"
+           [size]="getSize()"
+           [sizeLg]="getSizeLg()">
+  </ion-col>
+
+  <ion-col *ngIf="hasNeutralButton()"
+           [size]="getSize()"
+           [sizeLg]="getSizeLg()">
+    <ion-button id="{{ neutralButtonId }}"
+                class="neutral-button"
+                [fill]="'outline'"
+                [size]="'full'"
+                (click)="neutralClick()"
+                [disabled]="neutralDisabled">
+      <ion-icon *ngIf="neutralIcon !== null"
+                [slot]="neutralIconSlot"
+                [src]="neutralIcon"></ion-icon>
+
+      <ion-text [slot]="'start'">
+        {{ neutralActive ?
+          (
+            neutralActiveText.length === 0 ? neutralText : neutralActiveText
+          ) : neutralText
+        }}
+      </ion-text>
+    </ion-button>
+  </ion-col>
+
+  <ion-col *ngIf="!dynamicPositioning && !hasNeutralButton()"
+           [size]="getSize()"
+           [sizeLg]="getSizeLg()">
+  </ion-col>
+
+  <ion-col *ngIf="hasAcceptButton()"
+           [size]="getSize()"
+           [sizeLg]="getSizeLg()">
+    <ion-button id="{{ acceptButtonId }}"
+                class="accept-button"
+                [fill]="'outline'"
+                [size]="'full'"
+                (click)="acceptClick()"
+                [disabled]="acceptDisabled">
+      <ion-icon *ngIf="acceptIcon !== null"
+                [slot]="acceptIconSlot"
+                [src]="acceptIcon"></ion-icon>
+
+      <ion-text [slot]="'start'">
+        {{ acceptActive ?
+          (
+            acceptActiveText.length === 0 ? acceptText : acceptActiveText
+          ) : acceptText
+        }}
+      </ion-text>
+    </ion-button>
+  </ion-col>
+
+  <ion-col *ngIf="!dynamicPositioning && !hasAcceptButton()"
+           [size]="getSize()"
+           [sizeLg]="getSizeLg()">
+  </ion-col>
+</ion-row>

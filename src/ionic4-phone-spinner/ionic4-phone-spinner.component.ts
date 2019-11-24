@@ -4,6 +4,8 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {LockOptions} from '../models/lock-options.model';
 import {Ionic4PhoneSpinnerOptions} from '../models/ionic4-phone-spinner.model';
 
+import {Ionic4ModalComponentController} from '../ionic4-modal/ionic4-modal.component.controller';
+
 @Component({
   selector:    'ionic4-phone-spinner',
   templateUrl: './ionic4-phone-spinner.component.html',
@@ -44,7 +46,9 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
 
   @Output() change:EventEmitter<string>;
 
-  constructor() {
+  constructor(
+      private modal:Ionic4ModalComponentController
+  ) {
     this.change = new EventEmitter<string>();
   }
 
@@ -65,6 +69,16 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
   }
 
   toggleLock(i:number):void {
+    this.modal.confirm('Yes?').then(
+      (response) => {
+        if (response) {
+          this.updateLock(i);
+        }
+      }
+    );
+  }
+
+  updateLock(i:number):void {
     let canChange = true;
     if (i !== 0) {
       if (this.options.locks.indexOf(LockOptions.ORDER) !== -1) {
@@ -113,19 +127,19 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
       if (this.locks[i]) {
         if (this.options.unlocks.indexOf(LockOptions.RANDOM) !== -1) {
           setTimeout(
-            () => {
-              this.locks[i] = false;
-            },
-            Math.random() * 1000 * 60
+              () => {
+                this.locks[i] = false;
+              },
+              Math.random() * 1000 * 60
           );
         }
       } else {
         if (this.options.locks.indexOf(LockOptions.RANDOM) !== -1) {
           setTimeout(
-            () => {
-              this.locks[i] = true;
-            },
-            Math.random() * 1000 * 60
+              () => {
+                this.locks[i] = true;
+              },
+              Math.random() * 1000 * 60
           );
         }
       }
@@ -162,17 +176,17 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
       const shuffleLock = this.options.locks.indexOf(LockOptions.SHUFFLE) !== -1;
       const shuffleUnlock = this.options.unlocks.indexOf(LockOptions.SHUFFLE) !== -1;
       if (shuffleLock || shuffleUnlock) {
-        for (let i = 0; i < 10; i++) {
-          if (this.locks[i] === false && shuffleLock) {
-            this.locks[i] = true;
+        for (let j = 0; j < 10; i++) {
+          if (this.locks[j] === false && shuffleLock) {
+            this.locks[j] = true;
           }
 
-          if (this.locks[i] === true && shuffleUnlock) {
-            this.locks[i] = false;
+          if (this.locks[j] === true && shuffleUnlock) {
+            this.locks[j] = false;
           }
 
-          this.lockColors[i] = this.showLockIcon(i);
-          this.lockIcons[i] = this.showLockIcon(i);
+          this.lockColors[j] = this.showLockIcon(i);
+          this.lockIcons[j] = this.showLockIcon(i);
         }
       }
     }
