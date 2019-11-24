@@ -21,53 +21,106 @@
 
   <ion-card *ngIf="difficulty === 'bad'"
             style="height: 100%;">
-    <h4 style="margin-left: 10px;">
-      Enter your phone number:
-    </h4>
+    <ion-title class="ion-text-center ion-margin ion-padding"
+               style="width: 100%;">
+      Enter your phone number
+    </ion-title>
 
-    <ionic4-phone-spinner
-            [number]="value"
-            [options]="badOptions"
-            (change)="change($event)">
-    </ionic4-phone-spinner>
+    <ion-card-subtitle class="ion-padding-horizontal">
+      Rules
+    </ion-card-subtitle>
+
+    <ion-text class="ion-padding-horizontal">
+      Do stuff
+    </ion-text>
+
+    <ion-item-divider></ion-item-divider>
+
+    <ion-card-content>
+      <ionic4-phone-spinner
+              [number]="value"
+              [options]="badOptions"
+              (change)="change($event)">
+      </ionic4-phone-spinner>
+    </ion-card-content>
   </ion-card>
 
   <ion-card *ngIf="difficulty === 'badder'"
             style="height: 100%;">
-    <h4 style="margin-left: 10px;">
-      Try to enter your phone number:
-    </h4>
+    <ion-title class="ion-text-center ion-margin ion-padding"
+               style="width: 100%;">
+      Try to enter your phone number
+    </ion-title>
 
-    <ionic4-phone-spinner
-            [number]="value"
-            [options]="badderOptions"
-            (change)="change($event)">
-    </ionic4-phone-spinner>
+    <ion-card-subtitle class="ion-padding-horizontal">
+      Rules
+    </ion-card-subtitle>
+
+    <ion-text class="ion-padding-horizontal">
+      Do stuff
+    </ion-text>
+
+    <ion-item-divider></ion-item-divider>
+
+    <ion-card-content>
+      <ionic4-phone-spinner
+              [number]="value"
+              [options]="badderOptions"
+              (change)="change($event)">
+      </ionic4-phone-spinner>
+    </ion-card-content>
   </ion-card>
 
   <ion-card *ngIf="difficulty === 'baddest'"
             style="height: 100%;">
-    <h4 style="margin-left: 10px;">
-      You will never enter your phone number:
-    </h4>
+    <ion-title class="ion-text-center ion-margin ion-padding"
+               style="width: 100%;">
+      You will never enter your phone number
 
-    <ionic4-phone-spinner
-            [number]="value"
-            [options]="baddestOptions"
-            (change)="change($event)">
-    </ionic4-phone-spinner>
+    </ion-title>
+
+    <ion-card-subtitle class="ion-padding-horizontal">
+      Rules
+    </ion-card-subtitle>
+
+    <ion-text class="ion-padding-horizontal">
+      Do stuff
+    </ion-text>
+
+    <ion-item-divider></ion-item-divider>
+
+    <ion-card-content>
+      <ionic4-phone-spinner
+              [number]="value"
+              [options]="baddestOptions"
+              (change)="change($event)">
+      </ionic4-phone-spinner>
+    </ion-card-content>
   </ion-card>
 
   <ion-card *ngIf="difficulty === 'satan'"
             style="height: 100%;">
-    <h4 style="margin-left: 10px;">
-      Good luck, fucker:
-    </h4>
+    <ion-title class="ion-text-center ion-margin ion-padding"
+               style="width: 100%;">
+      Good luck, fucker!
+    </ion-title>
 
-    <ionic4-phone-spinner
-            [number]="value"
-            [options]="fuOptions"
-            (change)="change($event)">
-    </ionic4-phone-spinner>
+    <ion-card-subtitle class="ion-padding-horizontal">
+      Rules
+    </ion-card-subtitle>
+
+    <ion-text class="ion-padding-horizontal">
+      Do stuff
+    </ion-text>
+
+    <ion-item-divider></ion-item-divider>
+
+    <ion-card-content>
+      <ionic4-phone-spinner
+              [number]="value"
+              [options]="fuOptions"
+              (change)="change($event)">
+      </ionic4-phone-spinner>
+    </ion-card-content>
   </ion-card>
 </ion-content>

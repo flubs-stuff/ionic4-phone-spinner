@@ -1,3 +1,5 @@
-.selected-difficulty {
-  font-weight: bolder;
+@media (min-width: 768px) {
+  .destroy-md-up {
+    display: none !important;
+  }
 }

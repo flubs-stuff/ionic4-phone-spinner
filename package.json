@@ -4,7 +4,7 @@
   "private": false,
   "scripts": {
     "build": "ng-packagr -p package.json && cp src/scss/ionic4-phone-spinner.scss dist/ionic4-phone-spinner.scss && cp -r src/assets dist/assets",
-    "build:demo": "npm run build && cd demo && cp -fr ../dist/* node_modules/ionic4-phone-spinner/ && cd ..",
+    "build:demo": "npm run build && cd demo && cp -fr ../dist/* node_modules/@flubs/ionic4-phone-spinner/ && cd ..",
     "build-run:demo": "npm run build:demo && npm run run:demo",
     "docs": "npm run docs:build",
     "docs:build": "compodoc -p tsconfig.json -n ionic4-phone-spinner -d docs --hideGenerator",
