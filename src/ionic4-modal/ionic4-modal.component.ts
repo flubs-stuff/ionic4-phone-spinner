@@ -3,7 +3,7 @@ import {Component} from '@angular/core';
 import {ModalController, NavParams} from '@ionic/angular';
 
 @Component({
-  selector:    'uab-confirmation',
+  selector:    'ionic4-modal',
   templateUrl: 'ionic4-modal.component.html',
   styleUrls: [
     'ionic4-modal.component.scss'
@@ -18,8 +18,8 @@ export class Ionic4ModalComponent {
   public message:string = 'Are you sure?';
 
   constructor(
-    private modalCtrl: ModalController,
-    private navParams: NavParams
+    private modalCtrl:ModalController,
+    private navParams:NavParams
   ) {
     this.reset();
   }

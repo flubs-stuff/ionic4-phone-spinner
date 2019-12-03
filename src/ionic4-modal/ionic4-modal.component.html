@@ -5,26 +5,35 @@
 </ion-header>
 
 <ion-content class="confirmation-modal-content">
-  <div class="">
+  <div>
     {{ message }}
   </div>
-  <ion-row>
-    <ion-col [size]="6">
-      <ion-button [color]="'danger'"
-                  [expand]="'block'"
-                  [fill]="'solid'"
-                  (click)="cancel()">
-        {{ cancelText }}
-      </ion-button>
-    </ion-col>
 
-    <ion-col [size]="6">
-      <ion-button [color]="'success'"
-                  [expand]="'block'"
-                  [fill]="'solid'"
-                  (click)="confirm()">
-        {{ confirmText }}
-      </ion-button>
-    </ion-col>
-  </ion-row>
+<!--  <ionic4-buttons [acceptText]="confirmText"-->
+<!--                  (acceptOnClick)="confirm()"-->
+<!--                  [declineText]="cancelText"-->
+<!--                  (declineOnClick)="cancel()"-->
+<!--                  [showNeutralButton]="false"></ionic4-buttons>-->
+
+  <ion-button [color]="'success'"
+              [expand]="'block'"
+              [fill]="'solid'"
+              (click)="confirm()">
+    <ion-icon [slot]="'icon-only'"
+              [name]="'shuffle'"
+              [color]="'light'"></ion-icon>
+
+    <span class="ion-hide-md-down">Yes</span>
+  </ion-button>
+
+  <ion-button [color]="'success'"
+              [expand]="'block'"
+              [fill]="'solid'"
+              (click)="cancel()">
+    <ion-icon [slot]="'icon-only'"
+              [name]="'shuffle'"
+              [color]="'light'"></ion-icon>
+
+    <span class="ion-hide-md-down">No</span>
+  </ion-button>
 </ion-content>
