@@ -4,16 +4,16 @@
   "private": false,
   "scripts": {
     "build": "ng-packagr -p package.json && cp src/scss/ionic4-phone-spinner.scss dist/ionic4-phone-spinner.scss && cp -r src/assets dist/assets",
-    "build:demo": "npm run build && cd demo && cp -fr ../dist/* node_modules/@flubs/ionic4-phone-spinner/ && cd ..",
-    "build-run:demo": "npm run build:demo && npm run run:demo",
+    "demo": "cd demo && ionic serve",
+    "demo:build": "npm run build && cd demo && cp -fr ../dist/* node_modules/@flubs/ionic4-phone-spinner/ && cd ..",
+    "demo:run": "npm run demo:build && npm run demo",
     "docs": "npm run docs:build",
     "docs:build": "compodoc -p tsconfig.json -n ionic4-phone-spinner -d docs --hideGenerator",
     "docs:serve": "npm run docs:build -- -s",
     "docs:watch": "npm run docs:build -- -s -w",
     "lint": "tslint --type-check --project tsconfig.json src/**/*.ts",
     "publish": "npm publish dist --access=public",
-    "run:demo": "cd demo && ionic serve",
-    "shipit": "npm run lint && npm run test && npm run build:demo && npm run docs:build && npm run publish",
+    "shipit": "npm run lint && npm run test && npm run demo:build && npm run docs:build && npm run publish",
     "test": "tsc && karma start"
   },
   "ngPackage": {
