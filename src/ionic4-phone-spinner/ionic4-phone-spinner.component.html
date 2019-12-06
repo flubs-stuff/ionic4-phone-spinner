@@ -1,7 +1,8 @@
 <ion-list class="ion-padding">
   <ion-row class="ionic4-phone-spinner">
-    <ion-col [size]="1"
-             class="ion-hide-md-down"></ion-col>
+    <ion-col [size]="0"
+             [sizeSm]="1"
+             [sizeXs]="0"></ion-col>
 
     <ion-col [size]="1"
              class="ion-text-center"
@@ -21,21 +22,26 @@
         <ion-label>{{ digits[i] }}</ion-label>
       </ion-chip>
 
-      <ion-button [ngClass]="{ 'locked': locks[i], 'unlocked': locks[i] }"
+      <ion-button style="min-width: 28px;"
+                  [ngClass]="{ 'locked': locks[i], 'unlocked': locks[i] }"
                   [color]="lockColors[i] ? 'danger' : 'success'"
                   [expand]="'block'"
                   [fill]="'solid'"
                   (click)="toggleLock(i)"
                   [disabled]="disabled || isRandomizing">
-        <ion-icon [slot]="'icon-only'"
+        <ion-icon style="min-width: 23px;"
+                  [slot]="'icon-only'"
                   [name]="lockIcons[i] ? 'lock' : 'unlock'"
                   [color]="'light'"></ion-icon>
       </ion-button>
     </ion-col>
 
-    <ion-col [size]="1"
-             class="ion-hide-md-down"></ion-col>
+    <ion-col [size]="0"
+             [sizeSm]="1"
+             [sizeXs]="0"></ion-col>
+  </ion-row>
 
+  <ion-row class="ionic4-phone-spinner">
     <ion-col [size]="12"
              [sizeSm]="12"
              [sizeMd]="12"
