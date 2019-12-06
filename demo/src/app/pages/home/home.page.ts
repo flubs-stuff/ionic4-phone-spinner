@@ -47,7 +47,8 @@ export class HomePage {
       LockOptions.IGNORE,
       LockOptions.LIAR,
       LockOptions.MANUAL,
-      LockOptions.RANDOM
+      LockOptions.RANDOM,
+      LockOptions.SHUFFLE
     ];
 
     this.baddestOptions.unlocks = [
@@ -78,8 +79,8 @@ export class HomePage {
       LockOptions.SHUFFLE
     ];
 
-    this.baddestOptions.shufflesPerClick = 20;
-    this.baddestOptions.shuffleMilliseconds = 150;
+    this.fuOptions.shufflesPerClick = 20;
+    this.fuOptions.shuffleMilliseconds = 150;
 
     this.resetValue();
   }

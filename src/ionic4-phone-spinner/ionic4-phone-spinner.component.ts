@@ -167,7 +167,6 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
 
     if (typeof increment === 'undefined') {
       increment = this.options.shufflesPerClick;
-      increment--;
     }
 
     if (increment !== 0) {
