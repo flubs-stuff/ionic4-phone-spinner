@@ -51,77 +51,17 @@
 <li>Visit <a href="https://jrquick.com">my website</a> for other cool projects!</li>
 </ul>
 <h2 id="setup">Setup</h2>
-<p>To install this library (component), run:</p>
-<div><pre class="line-numbers"><code class="language-bash">$ npm i ionic4-phone-spinner --save</code></pre></div><h2 id="documentation">Documentation</h2>
-<p>Add NumberPickerModule to <code>AppModule</code></p>
-<div><pre class="line-numbers"><code class="language-typescript">import { BrowserModule } from &#39;&#64;angular/platform-browser&#39;;
-import { NgModule } from &#39;&#64;angular/core&#39;;
-
-import { AppComponent } from &#39;./app.component&#39;;
-
-// Import this library
-import { NgxBadPhoneSpinnerModule } from &#39;ionic4-phone-spinner&#39;;
-
-&#64;NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-
-    // Specify this library as an import
-    NgxBadPhoneSpinnerModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }</code></pre></div><p>Once this library is imported, you can use this component in your Angular application:</p>
-<h3 id="standalone-examples">Standalone Examples</h3>
-<div><pre class="line-numbers"><code class="language-typescript">export class AppComponent {
-    change(value: number): void {
-        console.log(value);
-    }
-}</code></pre></div><div><pre class="line-numbers"><code class="language-html">&lt;ionic4-phone-spinner
-    [number]=&quot;mobile&quot;
-    (change)=&quot;change($event)&quot;&gt;
-&lt;/ionic4-phone-spinner&gt;</code></pre></div><hr>
-<h3 id="component-inputs-and-outputs">Component Inputs and Outputs</h3>
-<table class="table table-bordered compodoc-table">
-<thead>
-<tr>
-<th align="left">Attribute</th>
-<th align="left">Type</th>
-<th align="center">Required</th>
-<th align="left">Default</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">number</td>
-<td align="left">[input] string</td>
-<td align="center">No</td>
-<td align="left">0000000000</td>
-<td align="left">initial value for the spinner</td>
-</tr>
-<tr>
-<td align="left">(change)</td>
-<td align="left">(output) number</td>
-<td align="center">no</td>
-<td align="left">-</td>
-<td align="left">emits the value of the current number, every time the user clicks the - or + button</td>
-</tr>
-</tbody>
-</table>
-<hr>
+<p>Install</p>
+<div><pre class="line-numbers"><code class="language-none">$ npm i ionic4-phone-spinner --save</code></pre></div><p>Import within your module</p>
+<h2 id="documentation">Documentation</h2>
 <h2 id="issues">Issues</h2>
-<p>If you find any issues feel free to open a request in <a href="https://github.com/flubs-stuff/ionic4-phone-spinner/issues">the Issues tab</a>. If I have the time I will try to solve any issues but cannot make any guarantees. Feel free to contribute yourself.</p>
+<p>If you find any issues feel free to open a request in <a href="https://github.com/flubs-stuff/ionic4-phone-spinner/issues">the Issues tab</a>. If I have the time I will try to solve any issues but cannot make any guarantees. Feel free to contribute yourself. But honestly, with this type of project are the bugs not just free features?</p>
 <h3 id="demo">Demo</h3>
 <p>Run <code>npm install</code> to get packages required for the demo and then run <code>ionic serve</code> to run locally.</p>
 <h3 id="thanks">Thanks</h3>
 <ul>
-<li><a href="https://github.com/mandhu">mandhu</a></li>
 <li><a href="https://github.com/jrquick17">jrquick17</a></li>
+<li><a href="https://github.com/mandhu">mandhu</a></li>
 </ul>
 
 

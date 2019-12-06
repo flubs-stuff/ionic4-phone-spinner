@@ -97,7 +97,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>transform(items: any[], quantity: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+<code>transform(items: any[], iterations: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, start?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, end?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
@@ -137,13 +137,37 @@
 
                                 </tr>
                                 <tr>
-                                    <td>quantity</td>
+                                    <td>iterations</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
                                     </td>
 
                                     <td>
                                         No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>start</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>end</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
                                     </td>
 
 
@@ -177,10 +201,13 @@
   pure: false
 })
 export class RangePipe implements PipeTransform {
-  transform(items:any[], quantity:number):any {
+  transform(items:any[], iterations:number, start?:number, end?:number):any {
+    start &#x3D; typeof start &#x3D;&#x3D;&#x3D; &#x27;number&#x27; ? start : 0;
+    end &#x3D; typeof end &#x3D;&#x3D;&#x3D; &#x27;number&#x27; ? end : iterations + start;
+
     items.length &#x3D; 0;
 
-    for (let i &#x3D; 0; i &lt; quantity; i++) {
+    for (let i &#x3D; start; i &lt; end; i++) {
       items.push(i);
     }
 

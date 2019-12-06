@@ -35,7 +35,7 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>Ionic4PhoneSpinnerDigitComponent</li>
+  <li>Ionic4PhoneSpinnerComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,7 +61,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/ionic4-phone-spinner/ionic4-phone-spinner-digit.component.ts</code>
+    <code>src/ionic4-phone-spinner/ionic4-phone-spinner.component.ts</code>
 </p>
 
 
@@ -91,7 +91,7 @@
                 <td class="col-md-3">providers</td>
                 <td class="col-md-9">
                                 <code><a href="../components/Ionic4PhoneSpinnerComponent.html" target="_self" >{
-    provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() &#x3D;&gt; Ionic4PhoneSpinnerDigitComponent), multi: true
+    provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() &#x3D;&gt; Ionic4PhoneSpinnerComponent), multi: true
 }</a></code>
                 </td>
             </tr>
@@ -147,10 +147,6 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#digits">digits</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
                                 <a href="#disabled">disabled</a>
                             </li>
                             <li>
@@ -163,15 +159,7 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#lockColors">lockColors</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#lockIcons">lockIcons</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#locks">locks</a>
+                                <a href="#numbers">numbers</a>
                             </li>
                         </ul>
                     </td>
@@ -193,6 +181,9 @@
                                 <a href="#clearLocks">clearLocks</a>
                             </li>
                             <li>
+                                <a href="#getIsLiar">getIsLiar</a>
+                            </li>
+                            <li>
                                 <a href="#randomize">randomize</a>
                             </li>
                             <li>
@@ -212,10 +203,10 @@
                                 <a href="#setDisabledState">setDisabledState</a>
                             </li>
                             <li>
-                                <a href="#showLockIcon">showLockIcon</a>
+                                <a href="#toggleLock">toggleLock</a>
                             </li>
                             <li>
-                                <a href="#toggleLock">toggleLock</a>
+                                <a href="#updateLock">updateLock</a>
                             </li>
                             <li>
                                 <a href="#writeValue">writeValue</a>
@@ -288,7 +279,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner-digit.component.ts:45</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner.component.ts:48</a></div>
                             </td>
                         </tr>
 
@@ -314,7 +305,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner-digit.component.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner.component.ts:35</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -340,7 +331,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner-digit.component.ts:34</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner.component.ts:32</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -364,7 +355,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner-digit.component.ts:45</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner.component.ts:48</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -401,8 +392,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="218"
-                            class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner-digit.component.ts:218</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="229"
+                            class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner.component.ts:229</a></div>
                 </td>
             </tr>
 
@@ -440,8 +431,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="181"
-                            class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner-digit.component.ts:181</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="192"
+                            class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner.component.ts:192</a></div>
                 </td>
             </tr>
 
@@ -452,6 +443,76 @@
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getIsLiar"></a>
+                    <span class="name">
+                        <b>
+                            getIsLiar
+                        </b>
+                        <a href="#getIsLiar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getIsLiar(i: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="200"
+                            class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner.component.ts:200</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>i</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -479,8 +540,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="194"
-                            class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner-digit.component.ts:194</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="221"
+                            class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner.component.ts:221</a></div>
                 </td>
             </tr>
 
@@ -518,8 +579,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="140"
-                            class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner-digit.component.ts:140</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="154"
+                            class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner.component.ts:154</a></div>
                 </td>
             </tr>
 
@@ -600,8 +661,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner-digit.component.ts:55</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner.component.ts:58</a></div>
                 </td>
             </tr>
 
@@ -670,8 +731,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner-digit.component.ts:59</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner.component.ts:62</a></div>
                 </td>
             </tr>
 
@@ -740,8 +801,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="189"
-                            class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner-digit.component.ts:189</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="216"
+                            class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner.component.ts:216</a></div>
                 </td>
             </tr>
 
@@ -780,8 +841,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner-digit.component.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner.component.ts:66</a></div>
                 </td>
             </tr>
 
@@ -832,26 +893,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="showLockIcon"></a>
+                    <a name="toggleLock"></a>
                     <span class="name">
                         <b>
-                            showLockIcon
+                            toggleLock
                         </b>
-                        <a href="#showLockIcon"><span class="icon ion-ios-link"></span></a>
+                        <a href="#toggleLock"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>showLockIcon(i: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+<code>toggleLock(i: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="202"
-                            class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner-digit.component.ts:202</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner.component.ts:70</a></div>
                 </td>
             </tr>
 
@@ -888,7 +949,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                     <div class="io-description">
@@ -902,26 +963,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="toggleLock"></a>
+                    <a name="updateLock"></a>
                     <span class="name">
                         <b>
-                            toggleLock
+                            updateLock
                         </b>
-                        <a href="#toggleLock"><span class="icon ion-ios-link"></span></a>
+                        <a href="#updateLock"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>toggleLock(i: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+<code>updateLock(i: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="67"
-                            class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner-digit.component.ts:67</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner.component.ts:75</a></div>
                 </td>
             </tr>
 
@@ -990,8 +1051,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner-digit.component.ts:51</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner.component.ts:54</a></div>
                 </td>
             </tr>
 
@@ -1065,7 +1126,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner-digit.component.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner.component.ts:29</a></div>
                             </td>
                         </tr>
 
@@ -1098,40 +1159,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner-digit.component.ts:32</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="digits"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            digits</b>
-                            <a href="#digits"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code>number[]</code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner-digit.component.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner.component.ts:30</a></div>
                             </td>
                         </tr>
 
@@ -1164,7 +1192,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner-digit.component.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner.component.ts:26</a></div>
                             </td>
                         </tr>
 
@@ -1197,7 +1225,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner-digit.component.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner.component.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -1230,7 +1258,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner-digit.component.ts:29</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner.component.ts:27</a></div>
                             </td>
                         </tr>
 
@@ -1241,95 +1269,29 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="lockColors"></a>
+                        <a name="numbers"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            lockColors</b>
-                            <a href="#lockColors"><span class="icon ion-ios-link"></span></a>
+                            numbers</b>
+                            <a href="#numbers"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>boolean[]</code>
+                            <i>Type : </i>        <code><a href="../classes/Digit.html" target="_self" >Digit[]</a></code>
 
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>[false, false, false, false, false, false, false, false, false, false]</code>
+                            <i>Default value : </i><code>[]</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner-digit.component.ts:26</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="lockIcons"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            lockIcons</b>
-                            <a href="#lockIcons"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code>boolean[]</code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>[false, false, false, false, false, false, false, false, false, false]</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner-digit.component.ts:25</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="locks"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            locks</b>
-                            <a href="#locks"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code>boolean[]</code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>[false, false, false, false, false, false, false, false, false, false]</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner-digit.component.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner.component.ts:24</a></div>
                             </td>
                         </tr>
 
@@ -1359,7 +1321,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner-digit.component.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/ionic4-phone-spinner/ionic4-phone-spinner.component.ts:35</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1409,6 +1371,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, EventEmitter, forwardRef, Input, Output} from &#x27;@angular/core&#x27;;
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from &#x27;@angular/forms&#x27;;
 
+import {Digit} from &#x27;../models/digit.model&#x27;;
 import {LockOptions} from &#x27;../models/lock-options.model&#x27;;
 import {Ionic4PhoneSpinnerOptions} from &#x27;../models/ionic4-phone-spinner.model&#x27;;
 
@@ -1421,17 +1384,14 @@ import {Ionic4PhoneSpinnerOptions} from &#x27;../models/ionic4-phone-spinner.mod
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() &#x3D;&gt; Ionic4PhoneSpinnerDigitComponent),
+      useExisting: forwardRef(() &#x3D;&gt; Ionic4PhoneSpinnerComponent),
       multi: true
     }
   ]
 })
-export class Ionic4PhoneSpinnerDigitComponent implements ControlValueAccessor {
+export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
   public fullNumber:string &#x3D; &#x27;0000000000&#x27;;
-  public digits:number[] &#x3D; [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-  public locks:boolean[] &#x3D; [false, false, false, false, false, false, false, false, false, false];
-  public lockIcons:boolean[] &#x3D; [false, false, false, false, false, false, false, false, false, false];
-  public lockColors:boolean[] &#x3D; [false, false, false, false, false, false, false, false, false, false];
+  public numbers:Digit[] &#x3D; [];
 
   public disabled:boolean &#x3D; false;
   public isRandomizing:boolean &#x3D; false;
@@ -1446,7 +1406,12 @@ export class Ionic4PhoneSpinnerDigitComponent implements ControlValueAccessor {
     const candidates &#x3D; digits.split(&#x27;&#x27;);
 
     for (let i &#x3D; 0; i &lt; 10; i++) {
-      this.digits[i] &#x3D; typeof candidates[i] !&#x3D;&#x3D; &#x27;undefined&#x27; ? parseInt(candidates[i], 10) :0;
+      const digit &#x3D; new Digit();
+      if (typeof candidates[i] !&#x3D;&#x3D; &#x27;undefined&#x27;) {
+        digit.value &#x3D; parseInt(candidates[i], 10);
+      }
+
+      this.numbers.push(digit);
     }
   }
 
@@ -1473,11 +1438,16 @@ export class Ionic4PhoneSpinnerDigitComponent implements ControlValueAccessor {
   }
 
   toggleLock(i:number):void {
+    // TODO: Add modal
+    this.updateLock(i);
+  }
+
+  updateLock(i:number):void {
     let canChange &#x3D; true;
     if (i !&#x3D;&#x3D; 0) {
       if (this.options.locks.indexOf(LockOptions.ORDER) !&#x3D;&#x3D; -1) {
         if (i !&#x3D;&#x3D; 0) {
-          if (this.locks[i - 1] &#x3D;&#x3D;&#x3D; false) {
+          if (this.numbers[i - 1].isLocked &#x3D;&#x3D;&#x3D; false) {
             canChange &#x3D; false;
           }
         }
@@ -1485,61 +1455,67 @@ export class Ionic4PhoneSpinnerDigitComponent implements ControlValueAccessor {
 
       if (this.options.unlocks.indexOf(LockOptions.ORDER) !&#x3D;&#x3D; -1) {
         if (i !&#x3D;&#x3D; 0) {
-          if (this.locks[i - 1] &#x3D;&#x3D;&#x3D; true) {
+          if (this.numbers[i - 1].isLocked &#x3D;&#x3D;&#x3D; true) {
             canChange &#x3D; false;
           }
         }
       }
       if (this.options.locks.indexOf(LockOptions.REVERSE) !&#x3D;&#x3D; -1) {
-        if (i + 1 &lt; this.locks.length) {
-          if (this.locks[i + 1] &#x3D;&#x3D;&#x3D; false) {
+        if (i + 1 &lt; this.numbers.length) {
+          if (this.numbers[i + 1].isLocked &#x3D;&#x3D;&#x3D; false) {
             canChange &#x3D; false;
           }
         }
       }
 
       if (this.options.unlocks.indexOf(LockOptions.REVERSE) !&#x3D;&#x3D; -1) {
-        if (i + 1 &lt; this.locks.length) {
-          if (this.locks[i + 1] &#x3D;&#x3D;&#x3D; true) {
+        if (i + 1 &lt; this.numbers.length) {
+          if (this.numbers[i + 1].isLocked &#x3D;&#x3D;&#x3D; true) {
             canChange &#x3D; false;
           }
         }
       }
     }
 
-    if (this.options.unlocks.indexOf(LockOptions.IGNORE) !&#x3D;&#x3D; -1 &amp;&amp; Math.random() &lt; 0.5) {
+    if (this.numbers[i].isLocked &amp;&amp; this.options.unlocks.indexOf(LockOptions.IGNORE) !&#x3D;&#x3D; -1 &amp;&amp; Math.random() &lt; 0.5) {
       canChange &#x3D; false;
     }
 
-    if (this.options.locks.indexOf(LockOptions.IGNORE) !&#x3D;&#x3D; -1 &amp;&amp; Math.random() &lt; 0.5) {
+    if (!this.numbers[i].isLocked &amp;&amp; this.options.locks.indexOf(LockOptions.IGNORE) !&#x3D;&#x3D; -1 &amp;&amp; Math.random() &lt; 0.5) {
       canChange &#x3D; false;
     }
 
     if (canChange) {
-      this.locks[i] &#x3D; !this.locks[i];
+      if (this.numbers[i].isLocked &#x3D;&#x3D;&#x3D; true &amp;&amp; this.options.locks.indexOf(LockOptions.DIFFERENT) !&#x3D;&#x3D; -1) {
+        i &#x3D; Math.round(Math.random() * 10);
+      } else if (this.numbers[i].isLocked &#x3D;&#x3D;&#x3D; false &amp;&amp; this.options.unlocks.indexOf(LockOptions.DIFFERENT) !&#x3D;&#x3D; -1) {
+        i &#x3D; Math.round(Math.random() * 10);
+      }
 
-      if (this.locks[i]) {
+      this.numbers[i].toggleIsLocked();
+
+      if (this.numbers[i].isLocked) {
         if (this.options.unlocks.indexOf(LockOptions.RANDOM) !&#x3D;&#x3D; -1) {
           setTimeout(
-            () &#x3D;&gt; {
-              this.locks[i] &#x3D; false;
-            },
-            Math.random() * 1000 * 60
+              () &#x3D;&gt; {
+                this.numbers[i].isLocked &#x3D; false;
+              },
+              Math.random() * 1000 * 60
           );
         }
       } else {
         if (this.options.locks.indexOf(LockOptions.RANDOM) !&#x3D;&#x3D; -1) {
           setTimeout(
-            () &#x3D;&gt; {
-              this.locks[i] &#x3D; true;
-            },
-            Math.random() * 1000 * 60
+              () &#x3D;&gt; {
+                this.numbers[i].isLocked &#x3D; true;
+              },
+              Math.random() * 1000 * 60
           );
         }
       }
 
-      this.lockColors[i] &#x3D; this.showLockIcon(i);
-      this.lockIcons[i] &#x3D; this.showLockIcon(i);
+      this.numbers[i].isCorrectColor &#x3D; this.getIsLiar(i);
+      this.numbers[i].isCorrectIcon &#x3D; this.getIsLiar(i);
 
       this._onChange();
     }
@@ -1548,11 +1524,10 @@ export class Ionic4PhoneSpinnerDigitComponent implements ControlValueAccessor {
   randomizeDigit(i:number, increment?:number):void {
     this.isRandomizing &#x3D; true;
 
-    this.digits[i] &#x3D; Math.round(Math.random() * 9);
+    this.numbers[i].randomize();
 
     if (typeof increment &#x3D;&#x3D;&#x3D; &#x27;undefined&#x27;) {
       increment &#x3D; this.options.shufflesPerClick;
-      increment--;
     }
 
     if (increment !&#x3D;&#x3D; 0) {
@@ -1570,17 +1545,15 @@ export class Ionic4PhoneSpinnerDigitComponent implements ControlValueAccessor {
       const shuffleLock &#x3D; this.options.locks.indexOf(LockOptions.SHUFFLE) !&#x3D;&#x3D; -1;
       const shuffleUnlock &#x3D; this.options.unlocks.indexOf(LockOptions.SHUFFLE) !&#x3D;&#x3D; -1;
       if (shuffleLock || shuffleUnlock) {
-        for (let i &#x3D; 0; i &lt; 10; i++) {
-          if (this.locks[i] &#x3D;&#x3D;&#x3D; false &amp;&amp; shuffleLock) {
-            this.locks[i] &#x3D; true;
+        for (let j &#x3D; 0; j &lt; 10; j++) {
+          if (this.numbers[j].isLocked &#x3D;&#x3D;&#x3D; false &amp;&amp; shuffleLock) {
+            this.numbers[j].isLocked &#x3D; true;
+          } else if (this.numbers[j].isLocked &#x3D;&#x3D;&#x3D; true &amp;&amp; shuffleUnlock) {
+            this.numbers[j].isLocked &#x3D; false;
           }
 
-          if (this.locks[i] &#x3D;&#x3D;&#x3D; true &amp;&amp; shuffleUnlock) {
-            this.locks[i] &#x3D; false;
-          }
-
-          this.lockColors[i] &#x3D; this.showLockIcon(i);
-          this.lockIcons[i] &#x3D; this.showLockIcon(i);
+          this.numbers[j].isCorrectColor &#x3D; this.getIsLiar(i);
+          this.numbers[j].isCorrectIcon &#x3D; this.getIsLiar(i);
         }
       }
     }
@@ -1588,10 +1561,26 @@ export class Ionic4PhoneSpinnerDigitComponent implements ControlValueAccessor {
 
   clearLocks():void {
     for (let i &#x3D; 0; i &lt; 10; i++) {
-      this.locks[i] &#x3D; false;
-      this.lockColors[i] &#x3D; this.showLockIcon(i);
-      this.lockIcons[i] &#x3D; this.showLockIcon(i);
+      this.numbers[i].isLocked &#x3D; false;
+      this.numbers[i].isCorrectColor &#x3D; this.getIsLiar(i);
+      this.numbers[i].isCorrectIcon &#x3D; this.getIsLiar(i);
     }
+  }
+
+  getIsLiar(i:number):boolean {
+    let showCorrectIcon &#x3D; true;
+
+    if (this.numbers[i].isLocked &#x3D;&#x3D;&#x3D; true &amp;&amp; this.options.locks.indexOf(LockOptions.LIAR) !&#x3D;&#x3D; -1) {
+      if (Math.random() &lt; 0.25) {
+        showCorrectIcon &#x3D; !this.numbers[i].isLocked;
+      }
+    } else if (this.numbers[i].isLocked &#x3D;&#x3D;&#x3D; false &amp;&amp; this.options.unlocks.indexOf(LockOptions.LIAR) !&#x3D;&#x3D; -1) {
+      if (Math.random() &lt; 0.25) {
+        showCorrectIcon &#x3D; !this.numbers[i].isLocked;
+      }
+    }
+
+    return showCorrectIcon;
   }
 
   reset():void {
@@ -1601,32 +1590,16 @@ export class Ionic4PhoneSpinnerDigitComponent implements ControlValueAccessor {
 
   randomize():void {
     for (let i &#x3D; 0; i &lt; 10; i++) {
-      if (this.locks[i] &#x3D;&#x3D;&#x3D; false) {
+      if (this.numbers[i].isLocked &#x3D;&#x3D;&#x3D; false) {
         this.randomizeDigit(i);
       }
     }
   }
 
-  showLockIcon(i:number):boolean {
-    let showLockIcon &#x3D; this.locks[i];
-
-    if (this.locks[i] &#x3D;&#x3D;&#x3D; true &amp;&amp; this.options.locks.indexOf(LockOptions.LIAR) !&#x3D;&#x3D; -1) {
-      if (Math.random() &lt; 0.25) {
-        showLockIcon &#x3D; !this.locks[i];
-      }
-    } else if (this.locks[i] &#x3D;&#x3D;&#x3D; false &amp;&amp; this.options.unlocks.indexOf(LockOptions.LIAR) !&#x3D;&#x3D; -1) {
-      if (Math.random() &lt; 0.25) {
-        showLockIcon &#x3D; !this.locks[i];
-      }
-    }
-
-    return showLockIcon;
-  }
-
   private _onChange():void {
     this.fullNumber &#x3D; &#x27;&#x27;;
     for (let i &#x3D; 0; i &lt; 10; i++) {
-      this.fullNumber +&#x3D; &#x27;&#x27; + this.digits[i];
+      this.fullNumber +&#x3D; &#x27;&#x27; + this.numbers[i].value;
     }
 
     this._propagateChange(this.fullNumber);
@@ -1637,103 +1610,165 @@ export class Ionic4PhoneSpinnerDigitComponent implements ControlValueAccessor {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;ionic4-phone-spinner&quot;&gt;
-  &lt;div class&#x3D;&quot;inline-label&quot;&gt;(&lt;/div&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;ion-list class&#x3D;&quot;ion-padding&quot;&gt;
+  &lt;ion-row class&#x3D;&quot;ionic4-phone-spinner&quot;&gt;
+    &lt;ion-col [size]&#x3D;&quot;1&quot;&gt;&lt;/ion-col&gt;
 
-  &lt;div class&#x3D;&quot;wrapper&quot;
-       *ngFor&#x3D;&quot;let range of [] | range:3; let i &#x3D; index&quot;&gt;
-    &lt;div&gt;{{ digits[i] }}&lt;/div&gt;
+    &lt;ion-col [sizeXs]&#x3D;&quot;3&quot;
+             [sizeSm]&#x3D;&quot;3&quot;
+             [sizeMd]&#x3D;&quot;1&quot;
+             class&#x3D;&quot;ion-text-center&quot;
+             *ngFor&#x3D;&quot;let i of [] | range:3&quot;&gt;
+      &lt;div *ngIf&#x3D;&quot;i &#x3D;&#x3D;&#x3D; 0&quot;
+           class&#x3D;&quot;inline-label&quot;
+           style&#x3D;&quot;font-weight: bolder; left: -6px;&quot;&gt;(&lt;/div&gt;
+      &lt;div *ngIf&#x3D;&quot;i &#x3D;&#x3D;&#x3D; 2&quot;
+           class&#x3D;&quot;inline-label&quot;
+           style&#x3D;&quot;font-weight: bolder; right: -6px;&quot;&gt;)&lt;/div&gt;
 
-    &lt;button type&#x3D;&quot;button&quot;
-            class&#x3D;&quot;ripple&quot;
-            (click)&#x3D;&quot;toggleLock(i)&quot;
-            [disabled]&#x3D;&quot;disabled || isRandomizing&quot;
-            [ngClass]&#x3D;&quot;{ &#x27;locked&#x27;: locks[i], &#x27;unlocked&#x27;: locks[i] }&quot;&gt;
-      &lt;span *ngIf&#x3D;&quot;lockIcons[i] &#x3D;&#x3D;&#x3D; true&quot;&gt;
-        &lt;svg xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; viewBox&#x3D;&quot;-150 -100 700 700&quot; [attr.fill]&#x3D;&quot;lockColors[i] ? &#x27;red&#x27; : &#x27;green&#x27;&quot;&gt;
-          &lt;path d&#x3D;&quot;M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z&quot;/&gt;
-        &lt;/svg&gt;
-      &lt;/span&gt;
+      &lt;ion-chip class&#x3D;&quot;ion-justify-content-center&quot;
+                style&#x3D;&quot;font-weight: bolder;&quot;&gt;
+        &lt;ion-label&gt;{{ numbers[i].value }}&lt;/ion-label&gt;
+      &lt;/ion-chip&gt;
 
-      &lt;span *ngIf&#x3D;&quot;lockIcons[i] &#x3D;&#x3D;&#x3D; false&quot;&gt;
-        &lt;svg xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; viewBox&#x3D;&quot;-150 -100 700 700&quot; [attr.fill]&#x3D;&quot;lockColors[i] ? &#x27;red&#x27; : &#x27;green&#x27;&quot;&gt;
-          &lt;path d&#x3D;&quot;M400 256H152V152.9c0-39.6 31.7-72.5 71.3-72.9 40-.4 72.7 32.1 72.7 72v16c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24v-16C376 68 307.5-.3 223.5 0 139.5.3 72 69.5 72 153.5V256H48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z&quot;/&gt;
-        &lt;/svg&gt;
-      &lt;/span&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
+      &lt;ion-button style&#x3D;&quot;min-width: 28px;&quot;
+                  [ngClass]&#x3D;&quot;{ &#x27;locked&#x27;: numbers[i].isLocked, &#x27;unlocked&#x27;: numbers[i].isLocked }&quot;
+                  [color]&#x3D;&quot;numbers[i].isLocked &amp;&amp; numbers[i].isCorrectColor ? &#x27;danger&#x27; : &#x27;success&#x27;&quot;
+                  [expand]&#x3D;&quot;&#x27;block&#x27;&quot;
+                  [fill]&#x3D;&quot;&#x27;solid&#x27;&quot;
+                  (click)&#x3D;&quot;toggleLock(i)&quot;
+                  [disabled]&#x3D;&quot;disabled || isRandomizing&quot;&gt;
+        &lt;ion-icon style&#x3D;&quot;min-width: 23px;&quot;
+                  [slot]&#x3D;&quot;&#x27;icon-only&#x27;&quot;
+                  [name]&#x3D;&quot;numbers[i].isLocked &amp;&amp; numbers[i].isCorrectIcon ? &#x27;lock&#x27; : &#x27;unlock&#x27;&quot;
+                  [color]&#x3D;&quot;&#x27;light&#x27;&quot;&gt;&lt;/ion-icon&gt;
+      &lt;/ion-button&gt;
+    &lt;/ion-col&gt;
 
-  &lt;div class&#x3D;&quot;inline-label&quot;&gt;)&lt;/div&gt;
+    &lt;ion-col [sizeXs]&#x3D;&quot;1&quot;
+             [sizeSm]&#x3D;&quot;1&quot;
+             [sizeMd]&#x3D;&quot;0&quot;&gt;&lt;/ion-col&gt;
 
-  &lt;div class&#x3D;&quot;wrapper&quot;
-       *ngFor&#x3D;&quot;let range of [] | range:3; let i &#x3D; index&quot;&gt;
-    &lt;div&gt;{{ digits[i + 3] }}&lt;/div&gt;
+    &lt;ion-col [sizeXs]&#x3D;&quot;4&quot;
+             [sizeSm]&#x3D;&quot;4&quot;
+             [sizeMd]&#x3D;&quot;1&quot;
+             class&#x3D;&quot;ion-text-center&quot;
+             *ngFor&#x3D;&quot;let i of [] | range:3 : 3&quot;&gt;
+      &lt;ion-chip class&#x3D;&quot;ion-justify-content-center&quot;
+                style&#x3D;&quot;font-weight: bolder;&quot;&gt;
+        &lt;ion-label&gt;{{ numbers[i].value }}&lt;/ion-label&gt;
+      &lt;/ion-chip&gt;
 
-    &lt;button type&#x3D;&quot;button&quot;
-            class&#x3D;&quot;ripple&quot;
-            (click)&#x3D;&quot;toggleLock(i + 3)&quot;
-            [disabled]&#x3D;&quot;disabled || isRandomizing&quot;
-            [ngClass]&#x3D;&quot;{ &#x27;locked&#x27;: locks[i + 3], &#x27;unlocked&#x27;: locks[i + 3] }&quot;&gt;
-      &lt;span *ngIf&#x3D;&quot;lockIcons[i + 3] &#x3D;&#x3D;&#x3D; true&quot;&gt;
-        &lt;svg xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; viewBox&#x3D;&quot;-150 -100 700 700&quot; [attr.fill]&#x3D;&quot;lockColors[i + 3] ? &#x27;red&#x27; : &#x27;green&#x27;&quot;&gt;
-          &lt;path d&#x3D;&quot;M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z&quot;/&gt;
-        &lt;/svg&gt;
-      &lt;/span&gt;
+      &lt;ion-button style&#x3D;&quot;min-width: 28px;&quot;
+                  [ngClass]&#x3D;&quot;{ &#x27;locked&#x27;: numbers[i].isLocked, &#x27;unlocked&#x27;: numbers[i].isLocked }&quot;
+                  [color]&#x3D;&quot;numbers[i].isLocked &amp;&amp; numbers[i].isCorrectColor ? &#x27;danger&#x27; : &#x27;success&#x27;&quot;
+                  [expand]&#x3D;&quot;&#x27;block&#x27;&quot;
+                  [fill]&#x3D;&quot;&#x27;solid&#x27;&quot;
+                  (click)&#x3D;&quot;toggleLock(i)&quot;
+                  [disabled]&#x3D;&quot;disabled || isRandomizing&quot;&gt;
+        &lt;ion-icon style&#x3D;&quot;min-width: 23px;&quot;
+                  [slot]&#x3D;&quot;&#x27;icon-only&#x27;&quot;
+                  [name]&#x3D;&quot;numbers[i].isLocked &amp;&amp; numbers[i].isCorrectIcon ? &#x27;lock&#x27; : &#x27;unlock&#x27;&quot;
+                  [color]&#x3D;&quot;&#x27;light&#x27;&quot;&gt;&lt;/ion-icon&gt;
+      &lt;/ion-button&gt;
+    &lt;/ion-col&gt;
 
-      &lt;span *ngIf&#x3D;&quot;lockIcons[i + 3] &#x3D;&#x3D;&#x3D; false&quot;&gt;
-        &lt;svg xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; viewBox&#x3D;&quot;-150 -100 700 700&quot; [attr.fill]&#x3D;&quot;lockColors[i + 3] ? &#x27;red&#x27; : &#x27;green&#x27;&quot;&gt;
-          &lt;path d&#x3D;&quot;M400 256H152V152.9c0-39.6 31.7-72.5 71.3-72.9 40-.4 72.7 32.1 72.7 72v16c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24v-16C376 68 307.5-.3 223.5 0 139.5.3 72 69.5 72 153.5V256H48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z&quot;/&gt;
-        &lt;/svg&gt;
-      &lt;/span&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
+&lt;!--    &lt;div class&#x3D;&quot;inline-label&quot;--&gt;
+&lt;!--         style&#x3D;&quot;font-weight: bolder; left: -9px;&quot;&gt;-&lt;/div&gt;--&gt;
 
-  &lt;div class&#x3D;&quot;inline-label&quot;&gt;-&lt;/div&gt;
+    &lt;ion-col [sizeXl]&#x3D;&quot;3&quot;
+             [sizeSm]&#x3D;&quot;3&quot;
+             [sizeMd]&#x3D;&quot;1&quot;
+             class&#x3D;&quot;ion-text-center&quot;
+             *ngFor&#x3D;&quot;let i of [] | range:4: 6;&quot;&gt;
+      &lt;ion-chip class&#x3D;&quot;ion-justify-content-center&quot;
+                style&#x3D;&quot;font-weight: bolder;&quot;&gt;
+        &lt;ion-label&gt;{{ numbers[i].value }}&lt;/ion-label&gt;
+      &lt;/ion-chip&gt;
 
-  &lt;div class&#x3D;&quot;wrapper&quot;
-       *ngFor&#x3D;&quot;let range of [] | range:4; let i &#x3D; index&quot;&gt;
-    &lt;div&gt;{{ digits[i + 6] }}&lt;/div&gt;
+      &lt;ion-button style&#x3D;&quot;min-width: 28px;&quot;
+                  [ngClass]&#x3D;&quot;{ &#x27;locked&#x27;: numbers[i].isLocked, &#x27;unlocked&#x27;: numbers[i].isLocked }&quot;
+                  [color]&#x3D;&quot;numbers[i].isLocked &amp;&amp; numbers[i].isCorrectColor ? &#x27;danger&#x27; : &#x27;success&#x27;&quot;
+                  [expand]&#x3D;&quot;&#x27;block&#x27;&quot;
+                  [fill]&#x3D;&quot;&#x27;solid&#x27;&quot;
+                  (click)&#x3D;&quot;toggleLock(i)&quot;
+                  [disabled]&#x3D;&quot;disabled || isRandomizing&quot;&gt;
+        &lt;ion-icon style&#x3D;&quot;min-width: 23px;&quot;
+                  [slot]&#x3D;&quot;&#x27;icon-only&#x27;&quot;
+                  [name]&#x3D;&quot;numbers[i].isLocked &amp;&amp; numbers[i].isCorrectIcon ? &#x27;lock&#x27; : &#x27;unlock&#x27;&quot;
+                  [color]&#x3D;&quot;&#x27;light&#x27;&quot;&gt;&lt;/ion-icon&gt;
+      &lt;/ion-button&gt;
+    &lt;/ion-col&gt;
 
-    &lt;button type&#x3D;&quot;button&quot;
-            class&#x3D;&quot;ripple&quot;
-            (click)&#x3D;&quot;toggleLock(i + 6)&quot;
-            [disabled]&#x3D;&quot;disabled || isRandomizing&quot;
-            [ngClass]&#x3D;&quot;{ &#x27;locked&#x27;: locks[i + 6], &#x27;unlocked&#x27;: locks[i+ 6] }&quot;&gt;
-      &lt;span *ngIf&#x3D;&quot;lockIcons[i + 6] &#x3D;&#x3D;&#x3D; true&quot;&gt;
-        &lt;svg xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; viewBox&#x3D;&quot;-150 -100 700 700&quot; [attr.fill]&#x3D;&quot;lockColors[i + 6] ? &#x27;red&#x27; : &#x27;green&#x27;&quot;&gt;
-          &lt;path d&#x3D;&quot;M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z&quot;/&gt;
-        &lt;/svg&gt;
-      &lt;/span&gt;
+    &lt;ion-col [size]&#x3D;&quot;1&quot;
+             [sizeSm]&#x3D;&quot;1&quot;
+             [sizeXs]&#x3D;&quot;0&quot;&gt;&lt;/ion-col&gt;
+  &lt;/ion-row&gt;
 
-      &lt;span *ngIf&#x3D;&quot;lockIcons[i + 6] &#x3D;&#x3D;&#x3D; false&quot;&gt;
-        &lt;svg xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; viewBox&#x3D;&quot;-150 -100 700 700&quot; [attr.fill]&#x3D;&quot;lockColors[i + 6] ? &#x27;red&#x27; : &#x27;green&#x27;&quot;&gt;
-          &lt;path d&#x3D;&quot;M400 256H152V152.9c0-39.6 31.7-72.5 71.3-72.9 40-.4 72.7 32.1 72.7 72v16c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24v-16C376 68 307.5-.3 223.5 0 139.5.3 72 69.5 72 153.5V256H48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z&quot;/&gt;
-        &lt;/svg&gt;
-      &lt;/span&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
+  &lt;ion-row class&#x3D;&quot;ionic4-phone-spinner&quot;&gt;
+    &lt;ion-col [size]&#x3D;&quot;12&quot;
+             [sizeSm]&#x3D;&quot;12&quot;
+             [sizeMd]&#x3D;&quot;12&quot;
+             [sizeLg]&#x3D;&quot;12&quot;
+             [sizeXl]&#x3D;&quot;12&quot;&gt;
+      &lt;ion-row&gt;
+        &lt;ion-col [size]&#x3D;&quot;12&quot;
+                 [sizeSm]&#x3D;&quot;4&quot;
+                 [sizeMd]&#x3D;&quot;4&quot;
+                 [sizeLg]&#x3D;&quot;4&quot;
+                 [sizeXl]&#x3D;&quot;4&quot;&gt;
+          &lt;ion-button [color]&#x3D;&quot;&#x27;success&#x27;&quot;
+                      [expand]&#x3D;&quot;&#x27;block&#x27;&quot;
+                      [fill]&#x3D;&quot;&#x27;solid&#x27;&quot;
+                      (click)&#x3D;&quot;randomize()&quot;
+                      [disabled]&#x3D;&quot;disabled || isRandomizing&quot;&gt;
+            &lt;ion-icon [slot]&#x3D;&quot;&#x27;icon-only&#x27;&quot;
+                      [name]&#x3D;&quot;&#x27;shuffle&#x27;&quot;
+                      [color]&#x3D;&quot;&#x27;light&#x27;&quot;&gt;&lt;/ion-icon&gt;
 
-  &lt;button type&#x3D;&quot;button&quot;
-          class&#x3D;&quot;randomize-button ripple&quot;
-          (click)&#x3D;&quot;randomize()&quot;
-          [disabled]&#x3D;&quot;disabled || isRandomizing&quot;&gt;
-    &lt;svg xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; viewBox&#x3D;&quot;0 0 512 512&quot;&gt;&lt;path d&#x3D;&quot;M504.971 359.029c9.373 9.373 9.373 24.569 0 33.941l-80 79.984c-15.01 15.01-40.971 4.49-40.971-16.971V416h-58.785a12.004 12.004 0 0 1-8.773-3.812l-70.556-75.596 53.333-57.143L352 336h32v-39.981c0-21.438 25.943-31.998 40.971-16.971l80 79.981zM12 176h84l52.781 56.551 53.333-57.143-70.556-75.596A11.999 11.999 0 0 0 122.785 96H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12zm372 0v39.984c0 21.46 25.961 31.98 40.971 16.971l80-79.984c9.373-9.373 9.373-24.569 0-33.941l-80-79.981C409.943 24.021 384 34.582 384 56.019V96h-58.785a12.004 12.004 0 0 0-8.773 3.812L96 336H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h110.785c3.326 0 6.503-1.381 8.773-3.812L352 176h32z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;
-  &lt;/button&gt;
+            &lt;span class&#x3D;&quot;ionic4-phone-spinner-button-text&quot;&gt;Shuffle&lt;/span&gt;
+          &lt;/ion-button&gt;
+        &lt;/ion-col&gt;
 
-  &lt;button type&#x3D;&quot;button&quot;
-          class&#x3D;&quot;randomize-button ripple&quot;
-          (click)&#x3D;&quot;clearLocks()&quot;
-          [disabled]&#x3D;&quot;disabled || isRandomizing&quot;&gt;
-    &lt;svg xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; viewBox&#x3D;&quot;0 0 512 512&quot;&gt;&lt;path d&#x3D;&quot;M512 176.001C512 273.203 433.202 352 336 352c-11.22 0-22.19-1.062-32.827-3.069l-24.012 27.014A23.999 23.999 0 0 1 261.223 384H224v40c0 13.255-10.745 24-24 24h-40v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24v-78.059c0-6.365 2.529-12.47 7.029-16.971l161.802-161.802C163.108 213.814 160 195.271 160 176 160 78.798 238.797.001 335.999 0 433.488-.001 512 78.511 512 176.001zM336 128c0 26.51 21.49 48 48 48s48-21.49 48-48-21.49-48-48-48-48 21.49-48 48z&quot;/&gt;&lt;/svg&gt;
-  &lt;/button&gt;
+        &lt;ion-col [size]&#x3D;&quot;12&quot;
+                 [sizeSm]&#x3D;&quot;4&quot;
+                 [sizeMd]&#x3D;&quot;4&quot;
+                 [sizeLg]&#x3D;&quot;4&quot;
+                 [sizeXl]&#x3D;&quot;4&quot;&gt;
+          &lt;ion-button [color]&#x3D;&quot;&#x27;warning&#x27;&quot;
+                      [expand]&#x3D;&quot;&#x27;block&#x27;&quot;
+                      [fill]&#x3D;&quot;&#x27;solid&#x27;&quot;
+                      (click)&#x3D;&quot;clearLocks()&quot;
+                      [disabled]&#x3D;&quot;disabled || isRandomizing&quot;&gt;
+            &lt;ion-icon [slot]&#x3D;&quot;&#x27;icon-only&#x27;&quot;
+                      [name]&#x3D;&quot;&#x27;key&#x27;&quot;
+                      [color]&#x3D;&quot;&#x27;light&#x27;&quot;&gt;&lt;/ion-icon&gt;
 
-  &lt;button type&#x3D;&quot;button&quot;
-          class&#x3D;&quot;randomize-button ripple&quot;
-          (click)&#x3D;&quot;reset()&quot;
-          [disabled]&#x3D;&quot;disabled || isRandomizing&quot;&gt;
-    &lt;svg xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; viewBox&#x3D;&quot;0 0 512 512&quot;&gt;&lt;path d&#x3D;&quot;M500.33 0h-47.41a12 12 0 0 0-12 12.57l4 82.76A247.42 247.42 0 0 0 256 8C119.34 8 7.9 119.53 8 256.19 8.1 393.07 119.1 504 256 504a247.1 247.1 0 0 0 166.18-63.91 12 12 0 0 0 .48-17.43l-34-34a12 12 0 0 0-16.38-.55A176 176 0 1 1 402.1 157.8l-101.53-4.87a12 12 0 0 0-12.57 12v47.41a12 12 0 0 0 12 12h200.33a12 12 0 0 0 12-12V12a12 12 0 0 0-12-12z&quot;/&gt;&lt;/svg&gt;
-  &lt;/button&gt;
-&lt;/div&gt;
+            &lt;span class&#x3D;&quot;ionic4-phone-spinner-button-text&quot;&gt;Unlock All&lt;/span&gt;
+          &lt;/ion-button&gt;
+        &lt;/ion-col&gt;
+
+        &lt;ion-col [size]&#x3D;&quot;12&quot;
+                 [sizeSm]&#x3D;&quot;4&quot;
+                 [sizeMd]&#x3D;&quot;4&quot;
+                 [sizeLg]&#x3D;&quot;4&quot;
+                 [sizeXl]&#x3D;&quot;4&quot;&gt;
+          &lt;ion-button [color]&#x3D;&quot;&#x27;danger&#x27;&quot;
+                      [expand]&#x3D;&quot;&#x27;block&#x27;&quot;
+                      [fill]&#x3D;&quot;&#x27;solid&#x27;&quot;
+                      (click)&#x3D;&quot;reset()&quot;
+                      [disabled]&#x3D;&quot;disabled || isRandomizing&quot;&gt;
+            &lt;ion-icon [slot]&#x3D;&quot;&#x27;icon-only&#x27;&quot;
+                      [name]&#x3D;&quot;&#x27;nuclear&#x27;&quot;
+                      [color]&#x3D;&quot;&#x27;light&#x27;&quot;&gt;&lt;/ion-icon&gt;
+
+            &lt;span class&#x3D;&quot;ionic4-phone-spinner-button-text&quot;&gt;Restart&lt;/span&gt;
+          &lt;/ion-button&gt;
+        &lt;/ion-col&gt;
+      &lt;/ion-row&gt;
+    &lt;/ion-col&gt;
+  &lt;/ion-row&gt;
+&lt;/ion-list&gt;
 </code></pre>
     </div>
 
@@ -1797,11 +1832,11 @@ input[type&#x3D;number]::-webkit-outer-spin-button {
   }
 
   .inline-label {
-    float: left;
     padding-top: 0;
     padding-left: 5px;
     padding-right: 5px;
     font-size: 2em;
+    position: absolute;
   }
 
   /* Ripple effect */
@@ -1827,6 +1862,11 @@ input[type&#x3D;number]::-webkit-outer-spin-button {
     margin-left: 10px;
     height: 37px;
   }
+}
+
+.ionic4-phone-spinner-button-text {
+  color: white;
+  padding-left: 10px;
 }
 </code></pre>
     </div>
@@ -1856,8 +1896,8 @@ input[type&#x3D;number]::-webkit-outer-spin-button {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="ionic4-phone-spinner">  <div class="inline-label">(</div>  <div class="wrapper"       *ngFor="let range of [] | range:3; let i = index">    <div>{{ digits[i] }}</div>    <button type="button"            class="ripple"            (click)="toggleLock(i)"            [disabled]="disabled || isRandomizing"            [ngClass]="{ \'locked\': locks[i], \'unlocked\': locks[i] }">      <span *ngIf="lockIcons[i] === true">        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-150 -100 700 700" [attr.fill]="lockColors[i] ? \'red\' : \'green\'">          <path d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"/>        </svg>      </span>      <span *ngIf="lockIcons[i] === false">        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-150 -100 700 700" [attr.fill]="lockColors[i] ? \'red\' : \'green\'">          <path d="M400 256H152V152.9c0-39.6 31.7-72.5 71.3-72.9 40-.4 72.7 32.1 72.7 72v16c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24v-16C376 68 307.5-.3 223.5 0 139.5.3 72 69.5 72 153.5V256H48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z"/>        </svg>      </span>    </button>  </div>  <div class="inline-label">)</div>  <div class="wrapper"       *ngFor="let range of [] | range:3; let i = index">    <div>{{ digits[i + 3] }}</div>    <button type="button"            class="ripple"            (click)="toggleLock(i + 3)"            [disabled]="disabled || isRandomizing"            [ngClass]="{ \'locked\': locks[i + 3], \'unlocked\': locks[i + 3] }">      <span *ngIf="lockIcons[i + 3] === true">        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-150 -100 700 700" [attr.fill]="lockColors[i + 3] ? \'red\' : \'green\'">          <path d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"/>        </svg>      </span>      <span *ngIf="lockIcons[i + 3] === false">        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-150 -100 700 700" [attr.fill]="lockColors[i + 3] ? \'red\' : \'green\'">          <path d="M400 256H152V152.9c0-39.6 31.7-72.5 71.3-72.9 40-.4 72.7 32.1 72.7 72v16c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24v-16C376 68 307.5-.3 223.5 0 139.5.3 72 69.5 72 153.5V256H48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z"/>        </svg>      </span>    </button>  </div>  <div class="inline-label">-</div>  <div class="wrapper"       *ngFor="let range of [] | range:4; let i = index">    <div>{{ digits[i + 6] }}</div>    <button type="button"            class="ripple"            (click)="toggleLock(i + 6)"            [disabled]="disabled || isRandomizing"            [ngClass]="{ \'locked\': locks[i + 6], \'unlocked\': locks[i+ 6] }">      <span *ngIf="lockIcons[i + 6] === true">        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-150 -100 700 700" [attr.fill]="lockColors[i + 6] ? \'red\' : \'green\'">          <path d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"/>        </svg>      </span>      <span *ngIf="lockIcons[i + 6] === false">        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-150 -100 700 700" [attr.fill]="lockColors[i + 6] ? \'red\' : \'green\'">          <path d="M400 256H152V152.9c0-39.6 31.7-72.5 71.3-72.9 40-.4 72.7 32.1 72.7 72v16c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24v-16C376 68 307.5-.3 223.5 0 139.5.3 72 69.5 72 153.5V256H48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z"/>        </svg>      </span>    </button>  </div>  <button type="button"          class="randomize-button ripple"          (click)="randomize()"          [disabled]="disabled || isRandomizing">    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M504.971 359.029c9.373 9.373 9.373 24.569 0 33.941l-80 79.984c-15.01 15.01-40.971 4.49-40.971-16.971V416h-58.785a12.004 12.004 0 0 1-8.773-3.812l-70.556-75.596 53.333-57.143L352 336h32v-39.981c0-21.438 25.943-31.998 40.971-16.971l80 79.981zM12 176h84l52.781 56.551 53.333-57.143-70.556-75.596A11.999 11.999 0 0 0 122.785 96H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12zm372 0v39.984c0 21.46 25.961 31.98 40.971 16.971l80-79.984c9.373-9.373 9.373-24.569 0-33.941l-80-79.981C409.943 24.021 384 34.582 384 56.019V96h-58.785a12.004 12.004 0 0 0-8.773 3.812L96 336H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h110.785c3.326 0 6.503-1.381 8.773-3.812L352 176h32z"></path></svg>  </button>  <button type="button"          class="randomize-button ripple"          (click)="clearLocks()"          [disabled]="disabled || isRandomizing">    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M512 176.001C512 273.203 433.202 352 336 352c-11.22 0-22.19-1.062-32.827-3.069l-24.012 27.014A23.999 23.999 0 0 1 261.223 384H224v40c0 13.255-10.745 24-24 24h-40v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24v-78.059c0-6.365 2.529-12.47 7.029-16.971l161.802-161.802C163.108 213.814 160 195.271 160 176 160 78.798 238.797.001 335.999 0 433.488-.001 512 78.511 512 176.001zM336 128c0 26.51 21.49 48 48 48s48-21.49 48-48-21.49-48-48-48-48 21.49-48 48z"/></svg>  </button>  <button type="button"          class="randomize-button ripple"          (click)="reset()"          [disabled]="disabled || isRandomizing">    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M500.33 0h-47.41a12 12 0 0 0-12 12.57l4 82.76A247.42 247.42 0 0 0 256 8C119.34 8 7.9 119.53 8 256.19 8.1 393.07 119.1 504 256 504a247.1 247.1 0 0 0 166.18-63.91 12 12 0 0 0 .48-17.43l-34-34a12 12 0 0 0-16.38-.55A176 176 0 1 1 402.1 157.8l-101.53-4.87a12 12 0 0 0-12.57 12v47.41a12 12 0 0 0 12 12h200.33a12 12 0 0 0 12-12V12a12 12 0 0 0-12-12z"/></svg>  </button></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'Ionic4PhoneSpinnerComponent', 'selector': 'ionic4-phone-spinner'}];
+        var COMPONENT_TEMPLATE = '<div><ion-list class="ion-padding">  <ion-row class="ionic4-phone-spinner">    <ion-col [size]="1"></ion-col>    <ion-col [sizeXs]="3"             [sizeSm]="3"             [sizeMd]="1"             class="ion-text-center"             *ngFor="let i of [] | range:3">      <div *ngIf="i === 0"           class="inline-label"           style="font-weight: bolder; left: -6px;">(</div>      <div *ngIf="i === 2"           class="inline-label"           style="font-weight: bolder; right: -6px;">)</div>      <ion-chip class="ion-justify-content-center"                style="font-weight: bolder;">        <ion-label>{{ numbers[i].value }}</ion-label>      </ion-chip>      <ion-button style="min-width: 28px;"                  [ngClass]="{ \'locked\': numbers[i].isLocked, \'unlocked\': numbers[i].isLocked }"                  [color]="numbers[i].isLocked && numbers[i].isCorrectColor ? \'danger\' : \'success\'"                  [expand]="\'block\'"                  [fill]="\'solid\'"                  (click)="toggleLock(i)"                  [disabled]="disabled || isRandomizing">        <ion-icon style="min-width: 23px;"                  [slot]="\'icon-only\'"                  [name]="numbers[i].isLocked && numbers[i].isCorrectIcon ? \'lock\' : \'unlock\'"                  [color]="\'light\'"></ion-icon>      </ion-button>    </ion-col>    <ion-col [sizeXs]="1"             [sizeSm]="1"             [sizeMd]="0"></ion-col>    <ion-col [sizeXs]="4"             [sizeSm]="4"             [sizeMd]="1"             class="ion-text-center"             *ngFor="let i of [] | range:3 : 3">      <ion-chip class="ion-justify-content-center"                style="font-weight: bolder;">        <ion-label>{{ numbers[i].value }}</ion-label>      </ion-chip>      <ion-button style="min-width: 28px;"                  [ngClass]="{ \'locked\': numbers[i].isLocked, \'unlocked\': numbers[i].isLocked }"                  [color]="numbers[i].isLocked && numbers[i].isCorrectColor ? \'danger\' : \'success\'"                  [expand]="\'block\'"                  [fill]="\'solid\'"                  (click)="toggleLock(i)"                  [disabled]="disabled || isRandomizing">        <ion-icon style="min-width: 23px;"                  [slot]="\'icon-only\'"                  [name]="numbers[i].isLocked && numbers[i].isCorrectIcon ? \'lock\' : \'unlock\'"                  [color]="\'light\'"></ion-icon>      </ion-button>    </ion-col><!--    <div class="inline-label"--><!--         style="font-weight: bolder; left: -9px;">-</div>-->    <ion-col [sizeXl]="3"             [sizeSm]="3"             [sizeMd]="1"             class="ion-text-center"             *ngFor="let i of [] | range:4: 6;">      <ion-chip class="ion-justify-content-center"                style="font-weight: bolder;">        <ion-label>{{ numbers[i].value }}</ion-label>      </ion-chip>      <ion-button style="min-width: 28px;"                  [ngClass]="{ \'locked\': numbers[i].isLocked, \'unlocked\': numbers[i].isLocked }"                  [color]="numbers[i].isLocked && numbers[i].isCorrectColor ? \'danger\' : \'success\'"                  [expand]="\'block\'"                  [fill]="\'solid\'"                  (click)="toggleLock(i)"                  [disabled]="disabled || isRandomizing">        <ion-icon style="min-width: 23px;"                  [slot]="\'icon-only\'"                  [name]="numbers[i].isLocked && numbers[i].isCorrectIcon ? \'lock\' : \'unlock\'"                  [color]="\'light\'"></ion-icon>      </ion-button>    </ion-col>    <ion-col [size]="1"             [sizeSm]="1"             [sizeXs]="0"></ion-col>  </ion-row>  <ion-row class="ionic4-phone-spinner">    <ion-col [size]="12"             [sizeSm]="12"             [sizeMd]="12"             [sizeLg]="12"             [sizeXl]="12">      <ion-row>        <ion-col [size]="12"                 [sizeSm]="4"                 [sizeMd]="4"                 [sizeLg]="4"                 [sizeXl]="4">          <ion-button [color]="\'success\'"                      [expand]="\'block\'"                      [fill]="\'solid\'"                      (click)="randomize()"                      [disabled]="disabled || isRandomizing">            <ion-icon [slot]="\'icon-only\'"                      [name]="\'shuffle\'"                      [color]="\'light\'"></ion-icon>            <span class="ionic4-phone-spinner-button-text">Shuffle</span>          </ion-button>        </ion-col>        <ion-col [size]="12"                 [sizeSm]="4"                 [sizeMd]="4"                 [sizeLg]="4"                 [sizeXl]="4">          <ion-button [color]="\'warning\'"                      [expand]="\'block\'"                      [fill]="\'solid\'"                      (click)="clearLocks()"                      [disabled]="disabled || isRandomizing">            <ion-icon [slot]="\'icon-only\'"                      [name]="\'key\'"                      [color]="\'light\'"></ion-icon>            <span class="ionic4-phone-spinner-button-text">Unlock All</span>          </ion-button>        </ion-col>        <ion-col [size]="12"                 [sizeSm]="4"                 [sizeMd]="4"                 [sizeLg]="4"                 [sizeXl]="4">          <ion-button [color]="\'danger\'"                      [expand]="\'block\'"                      [fill]="\'solid\'"                      (click)="reset()"                      [disabled]="disabled || isRandomizing">            <ion-icon [slot]="\'icon-only\'"                      [name]="\'nuclear\'"                      [color]="\'light\'"></ion-icon>            <span class="ionic4-phone-spinner-button-text">Restart</span>          </ion-button>        </ion-col>      </ion-row>    </ion-col>  </ion-row></ion-list></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HomePage', 'selector': 'home-page'},{'name': 'Ionic4PhoneSpinnerComponent', 'selector': 'ionic4-phone-spinner'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'Ionic4PhoneSpinnerComponent'};
 </script>
