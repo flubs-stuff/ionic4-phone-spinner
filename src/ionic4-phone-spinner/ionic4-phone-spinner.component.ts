@@ -72,13 +72,13 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
   }
 
   toggleLock(i:number):void {
-    this.modal.confirm('Yes?').then(
-      (response) => {
-        if (response) {
+    // this.modal.confirm('Yes?').then(
+    //   (response) => {
+    //     if (response) {
           this.updateLock(i);
-        }
-      }
-    );
+        // }
+      // }
+    // );
   }
 
   updateLock(i:number):void {
