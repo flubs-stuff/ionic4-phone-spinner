@@ -185,7 +185,7 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
       const shuffleLock = this.options.locks.indexOf(LockOptions.SHUFFLE) !== -1;
       const shuffleUnlock = this.options.unlocks.indexOf(LockOptions.SHUFFLE) !== -1;
       if (shuffleLock || shuffleUnlock) {
-        for (let j = 0; j < 10; i++) {
+        for (let j = 0; j < 10; j++) {
           if (this.numbers[j].isLocked === false && shuffleLock) {
             this.numbers[j].isLocked = true;
           }
