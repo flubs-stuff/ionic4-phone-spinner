@@ -8,15 +8,16 @@
              *ngFor="let range of [] | range:10; let i = index">
       <div *ngIf="i === 0"
            class="inline-label"
-           style="left: -6px;">(</div>
+           style="font-weight: bolder; left: -6px;">(</div>
       <div *ngIf="i === 3"
            class="inline-label"
-           style="left: -6px;">)</div>
+           style="font-weight: bolder; left: -6px;">)</div>
       <div *ngIf="i === 6"
            class="inline-label"
-           style="left: -9px;">-</div>
+           style="font-weight: bolder; left: -9px;">-</div>
 
-      <ion-chip class="ion-justify-content-center">
+      <ion-chip class="ion-justify-content-center"
+                style="font-weight: bolder;">
         <ion-label>{{ digits[i] }}</ion-label>
       </ion-chip>
 
