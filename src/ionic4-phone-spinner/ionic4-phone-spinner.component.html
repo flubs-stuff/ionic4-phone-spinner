@@ -19,19 +19,19 @@
 
       <ion-chip class="ion-justify-content-center"
                 style="font-weight: bolder;">
-        <ion-label>{{ digits[i] }}</ion-label>
+        <ion-label>{{ numbers[i].value }}</ion-label>
       </ion-chip>
 
       <ion-button style="min-width: 28px;"
-                  [ngClass]="{ 'locked': locks[i], 'unlocked': locks[i] }"
-                  [color]="lockColors[i] ? 'danger' : 'success'"
+                  [ngClass]="{ 'locked': numbers[i].isLocked, 'unlocked': numbers[i].isLocked }"
+                  [color]="numbers[i].isLocked && numbers[i].isCorrectColor ? 'danger' : 'success'"
                   [expand]="'block'"
                   [fill]="'solid'"
                   (click)="toggleLock(i)"
                   [disabled]="disabled || isRandomizing">
         <ion-icon style="min-width: 23px;"
                   [slot]="'icon-only'"
-                  [name]="lockIcons[i] ? 'lock' : 'unlock'"
+                  [name]="numbers[i].isLocked && numbers[i].isCorrectIcon ? 'lock' : 'unlock'"
                   [color]="'light'"></ion-icon>
       </ion-button>
     </ion-col>

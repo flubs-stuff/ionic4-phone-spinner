@@ -1,6 +1,7 @@
 import {Component, EventEmitter, forwardRef, Input, Output} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
+import {Digit} from '../models/digit.model';
 import {LockOptions} from '../models/lock-options.model';
 import {Ionic4PhoneSpinnerOptions} from '../models/ionic4-phone-spinner.model';
 
@@ -22,10 +23,7 @@ import {Ionic4ModalComponentController} from '../ionic4-modal/ionic4-modal.compo
 })
 export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
   public fullNumber:string = '0000000000';
-  public digits:number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-  public locks:boolean[] = [false, false, false, false, false, false, false, false, false, false];
-  public lockIcons:boolean[] = [false, false, false, false, false, false, false, false, false, false];
-  public lockColors:boolean[] = [false, false, false, false, false, false, false, false, false, false];
+  public numbers:Digit[] = [];
 
   public disabled:boolean = false;
   public isRandomizing:boolean = false;
@@ -40,14 +38,19 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
     const candidates = digits.split('');
 
     for (let i = 0; i < 10; i++) {
-      this.digits[i] = typeof candidates[i] !== 'undefined' ? parseInt(candidates[i], 10) :0;
+      const digit = new Digit();
+      if (typeof candidates[i] !== 'undefined') {
+        digit.value = parseInt(candidates[i], 10);
+      }
+
+      this.numbers.push(digit);
     }
   }
 
   @Output() change:EventEmitter<string>;
 
   constructor(
-      private modal:Ionic4ModalComponentController
+    private modal:Ionic4ModalComponentController
   ) {
     this.change = new EventEmitter<string>();
   }
@@ -83,7 +86,7 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
     if (i !== 0) {
       if (this.options.locks.indexOf(LockOptions.ORDER) !== -1) {
         if (i !== 0) {
-          if (this.locks[i - 1] === false) {
+          if (this.numbers[i - 1].isLocked === false) {
             canChange = false;
           }
         }
@@ -91,22 +94,22 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
 
       if (this.options.unlocks.indexOf(LockOptions.ORDER) !== -1) {
         if (i !== 0) {
-          if (this.locks[i - 1] === true) {
+          if (this.numbers[i - 1].isLocked === true) {
             canChange = false;
           }
         }
       }
       if (this.options.locks.indexOf(LockOptions.REVERSE) !== -1) {
-        if (i + 1 < this.locks.length) {
-          if (this.locks[i + 1] === false) {
+        if (i + 1 < this.numbers.length) {
+          if (this.numbers[i + 1].isLocked === false) {
             canChange = false;
           }
         }
       }
 
       if (this.options.unlocks.indexOf(LockOptions.REVERSE) !== -1) {
-        if (i + 1 < this.locks.length) {
-          if (this.locks[i + 1] === true) {
+        if (i + 1 < this.numbers.length) {
+          if (this.numbers[i + 1].isLocked === true) {
             canChange = false;
           }
         }
@@ -122,19 +125,19 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
     }
 
     if (canChange) {
-      if (this.locks[i] === true && this.options.locks.indexOf(LockOptions.DIFFERENT) !== -1) {
+      if (this.numbers[i].isLocked === true && this.options.locks.indexOf(LockOptions.DIFFERENT) !== -1) {
         i = Math.round(Math.random() * 10);
-      } else if (this.locks[i] === false && this.options.unlocks.indexOf(LockOptions.DIFFERENT) !== -1) {
+      } else if (this.numbers[i].isLocked === false && this.options.unlocks.indexOf(LockOptions.DIFFERENT) !== -1) {
         i = Math.round(Math.random() * 10);
       }
 
-      this.locks[i] = !this.locks[i];
+      this.numbers[i].toggleIsLocked();
 
-      if (this.locks[i]) {
+      if (this.numbers[i].isLocked) {
         if (this.options.unlocks.indexOf(LockOptions.RANDOM) !== -1) {
           setTimeout(
               () => {
-                this.locks[i] = false;
+                this.numbers[i].isLocked = false;
               },
               Math.random() * 1000 * 60
           );
@@ -143,15 +146,15 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
         if (this.options.locks.indexOf(LockOptions.RANDOM) !== -1) {
           setTimeout(
               () => {
-                this.locks[i] = true;
+                this.numbers[i].isLocked = true;
               },
               Math.random() * 1000 * 60
           );
         }
       }
 
-      this.lockColors[i] = this.showLockIcon(i);
-      this.lockIcons[i] = this.showLockIcon(i);
+      this.numbers[i].isCorrectColor = this.getIsLiar(i);
+      this.numbers[i].isCorrectIcon = this.getIsLiar(i);
 
       this._onChange();
     }
@@ -160,7 +163,7 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
   randomizeDigit(i:number, increment?:number):void {
     this.isRandomizing = true;
 
-    this.digits[i] = Math.round(Math.random() * 9);
+    this.numbers[i].randomize();
 
     if (typeof increment === 'undefined') {
       increment = this.options.shufflesPerClick;
@@ -183,16 +186,16 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
       const shuffleUnlock = this.options.unlocks.indexOf(LockOptions.SHUFFLE) !== -1;
       if (shuffleLock || shuffleUnlock) {
         for (let j = 0; j < 10; i++) {
-          if (this.locks[j] === false && shuffleLock) {
-            this.locks[j] = true;
+          if (this.numbers[j].isLocked === false && shuffleLock) {
+            this.numbers[j].isLocked = true;
           }
 
-          if (this.locks[j] === true && shuffleUnlock) {
-            this.locks[j] = false;
+          if (this.numbers[j].isLocked === true && shuffleUnlock) {
+            this.numbers[j].isLocked = false;
           }
 
-          this.lockColors[j] = this.showLockIcon(i);
-          this.lockIcons[j] = this.showLockIcon(i);
+          this.numbers[j].isCorrectColor = this.getIsLiar(i);
+          this.numbers[j].isCorrectIcon = this.getIsLiar(i);
         }
       }
     }
@@ -200,10 +203,26 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
 
   clearLocks():void {
     for (let i = 0; i < 10; i++) {
-      this.locks[i] = false;
-      this.lockColors[i] = this.showLockIcon(i);
-      this.lockIcons[i] = this.showLockIcon(i);
+      this.numbers[i].isLocked = false;
+      this.numbers[i].isCorrectColor = this.getIsLiar(i);
+      this.numbers[i].isCorrectIcon = this.getIsLiar(i);
     }
+  }
+
+  getIsLiar(i:number):boolean {
+    let showCorrectIcon = true;
+
+    if (this.numbers[i].isLocked === true && this.options.locks.indexOf(LockOptions.LIAR) !== -1) {
+      if (Math.random() < 0.25) {
+        showCorrectIcon = !this.numbers[i].isLocked;
+      }
+    } else if (this.numbers[i].isLocked === false && this.options.unlocks.indexOf(LockOptions.LIAR) !== -1) {
+      if (Math.random() < 0.25) {
+        showCorrectIcon = !this.numbers[i].isLocked;
+      }
+    }
+
+    return showCorrectIcon;
   }
 
   reset():void {
@@ -213,32 +232,16 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
 
   randomize():void {
     for (let i = 0; i < 10; i++) {
-      if (this.locks[i] === false) {
+      if (this.numbers[i].isLocked === false) {
         this.randomizeDigit(i);
       }
     }
   }
 
-  showLockIcon(i:number):boolean {
-    let showLockIcon = this.locks[i];
-
-    if (this.locks[i] === true && this.options.locks.indexOf(LockOptions.LIAR) !== -1) {
-      if (Math.random() < 0.25) {
-        showLockIcon = !this.locks[i];
-      }
-    } else if (this.locks[i] === false && this.options.unlocks.indexOf(LockOptions.LIAR) !== -1) {
-      if (Math.random() < 0.25) {
-        showLockIcon = !this.locks[i];
-      }
-    }
-
-    return showLockIcon;
-  }
-
   private _onChange():void {
     this.fullNumber = '';
     for (let i = 0; i < 10; i++) {
-      this.fullNumber += '' + this.digits[i];
+      this.fullNumber += '' + this.numbers[i].value;
     }
 
     this._propagateChange(this.fullNumber);
