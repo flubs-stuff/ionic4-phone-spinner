@@ -116,11 +116,11 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
       }
     }
 
-    if (this.options.unlocks.indexOf(LockOptions.IGNORE) !== -1 && Math.random() < 0.5) {
+    if (!this.numbers[i].isLocked && this.options.unlocks.indexOf(LockOptions.IGNORE) !== -1 && Math.random() < 0.5) {
       canChange = false;
     }
 
-    if (this.options.locks.indexOf(LockOptions.IGNORE) !== -1 && Math.random() < 0.5) {
+    if (this.numbers[i].isLocked && this.options.locks.indexOf(LockOptions.IGNORE) !== -1 && Math.random() < 0.5) {
       canChange = false;
     }
 
