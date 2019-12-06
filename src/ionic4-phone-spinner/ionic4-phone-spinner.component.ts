@@ -5,8 +5,6 @@ import {Digit} from '../models/digit.model';
 import {LockOptions} from '../models/lock-options.model';
 import {Ionic4PhoneSpinnerOptions} from '../models/ionic4-phone-spinner.model';
 
-import {Ionic4ModalComponentController} from '../ionic4-modal/ionic4-modal.component.controller';
-
 @Component({
   selector:    'ionic4-phone-spinner',
   templateUrl: './ionic4-phone-spinner.component.html',
@@ -49,9 +47,7 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
 
   @Output() change:EventEmitter<string>;
 
-  constructor(
-    private modal:Ionic4ModalComponentController
-  ) {
+  constructor() {
     this.change = new EventEmitter<string>();
   }
 
@@ -72,13 +68,8 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
   }
 
   toggleLock(i:number):void {
-    // this.modal.confirm('Yes?').then(
-    //   (response) => {
-    //     if (response) {
-          this.updateLock(i);
-        // }
-      // }
-    // );
+    // TODO: Add modal
+    this.updateLock(i);
   }
 
   updateLock(i:number):void {

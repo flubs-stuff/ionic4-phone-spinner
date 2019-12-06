@@ -141,8 +141,8 @@ var Ionic4PhoneSpinnerComponent = /** @class */ (function () {
                     }, Math.random() * 1000 * 60);
                 }
             }
-            this.lockColors[i] = this.showLockIcon(i);
-            this.lockIcons[i] = this.showLockIcon(i);
+            this.lockColors[i] = this.getIsLiar(i);
+            this.lockIcons[i] = this.getIsLiar(i);
             this._onChange();
         }
     };
@@ -172,8 +172,8 @@ var Ionic4PhoneSpinnerComponent = /** @class */ (function () {
                     if (this.locks[i_1] === true && shuffleUnlock) {
                         this.locks[i_1] = false;
                     }
-                    this.lockColors[i_1] = this.showLockIcon(i_1);
-                    this.lockIcons[i_1] = this.showLockIcon(i_1);
+                    this.lockColors[i_1] = this.getIsLiar(i_1);
+                    this.lockIcons[i_1] = this.getIsLiar(i_1);
                 }
             }
         }
@@ -181,8 +181,8 @@ var Ionic4PhoneSpinnerComponent = /** @class */ (function () {
     Ionic4PhoneSpinnerComponent.prototype.clearLocks = function () {
         for (var i = 0; i < 10; i++) {
             this.locks[i] = false;
-            this.lockColors[i] = this.showLockIcon(i);
-            this.lockIcons[i] = this.showLockIcon(i);
+            this.lockColors[i] = this.getIsLiar(i);
+            this.lockIcons[i] = this.getIsLiar(i);
         }
     };
     Ionic4PhoneSpinnerComponent.prototype.reset = function () {
