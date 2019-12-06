@@ -8,6 +8,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .ionic4-phone-spinner {
   display: flex;
+  min-width: 387px;
   width: 100%;
 
   .wrapper {
