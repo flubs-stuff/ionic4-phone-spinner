@@ -74,11 +74,11 @@
 <path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M79,-187.1061C79,-187.1061 79,-205.991 79,-205.991"/>
 <polygon fill="#000000" stroke="#000000" points="75.5001,-205.9909 79,-215.991 82.5001,-205.991 75.5001,-205.9909"/>
 </g>
-<!-- Ionic4PhoneSpinnerComponent -->
+<!-- Ionic4PhoneSpinnerLockComponent -->
 <g id="node4" class="node">
-<title>Ionic4PhoneSpinnerComponent</title>
+<title>Ionic4PhoneSpinnerLockComponent</title>
 <polygon fill="#ffffb3" stroke="#000000" points="466.6441,-122 271.3559,-122 271.3559,-86 466.6441,-86 466.6441,-122"/>
-<text text-anchor="middle" x="369" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">Ionic4PhoneSpinnerComponent</text>
+<text text-anchor="middle" x="369" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">Ionic4PhoneSpinnerLockComponent</text>
 </g>
 <!-- Ionic4PhoneSpinnerModule -->
 <g id="node6" class="node">
@@ -86,9 +86,9 @@
 <polygon fill="#8dd3c7" stroke="#000000" points="394.8613,-187 391.8613,-191 370.8613,-191 367.8613,-187 221.1387,-187 221.1387,-151 394.8613,-151 394.8613,-187"/>
 <text text-anchor="middle" x="308" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">Ionic4PhoneSpinnerModule</text>
 </g>
-<!-- Ionic4PhoneSpinnerComponent&#45;&gt;Ionic4PhoneSpinnerModule -->
+<!-- Ionic4PhoneSpinnerLockComponent&#45;&gt;Ionic4PhoneSpinnerModule -->
 <g id="edge3" class="edge">
-<title>Ionic4PhoneSpinnerComponent&#45;&gt;Ionic4PhoneSpinnerModule</title>
+<title>Ionic4PhoneSpinnerLockComponent&#45;&gt;Ionic4PhoneSpinnerModule</title>
 <path fill="none" stroke="#000000" d="M333.0544,-122.1061C333.0544,-122.1061 333.0544,-140.991 333.0544,-140.991"/>
 <polygon fill="#000000" stroke="#000000" points="329.5544,-140.9909 333.0544,-150.991 336.5544,-140.991 329.5544,-140.9909"/>
 </g>
@@ -104,15 +104,15 @@
 <path fill="none" stroke="#000000" d="M237.1981,-122.1061C237.1981,-122.1061 237.1981,-140.991 237.1981,-140.991"/>
 <polygon fill="#000000" stroke="#000000" points="233.6982,-140.9909 237.1981,-150.991 240.6982,-140.991 233.6982,-140.9909"/>
 </g>
-<!-- Ionic4PhoneSpinnerComponent  -->
+<!-- Ionic4PhoneSpinnerLockComponent  -->
 <g id="node7" class="node">
-<title>Ionic4PhoneSpinnerComponent </title>
+<title>Ionic4PhoneSpinnerLockComponent </title>
 <polygon fill="#fb8072" stroke="#000000" points="470.6439,-252 271.3561,-252 271.3561,-216 470.6439,-216 470.6439,-252"/>
-<text text-anchor="middle" x="371" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">Ionic4PhoneSpinnerComponent </text>
+<text text-anchor="middle" x="371" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">Ionic4PhoneSpinnerLockComponent </text>
 </g>
-<!-- Ionic4PhoneSpinnerModule&#45;&gt;Ionic4PhoneSpinnerComponent  -->
+<!-- Ionic4PhoneSpinnerModule&#45;&gt;Ionic4PhoneSpinnerLockComponent  -->
 <g id="edge5" class="edge">
-<title>Ionic4PhoneSpinnerModule&#45;&gt;Ionic4PhoneSpinnerComponent </title>
+<title>Ionic4PhoneSpinnerModule&#45;&gt;Ionic4PhoneSpinnerLockComponent </title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M333.1794,-187.1061C333.1794,-187.1061 333.1794,-205.991 333.1794,-205.991"/>
 <polygon fill="#000000" stroke="#000000" points="329.6794,-205.9909 333.1794,-215.991 336.6794,-205.991 329.6794,-205.9909"/>
 </g>
