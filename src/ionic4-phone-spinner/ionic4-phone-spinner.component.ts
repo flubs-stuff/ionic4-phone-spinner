@@ -125,7 +125,7 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
       this.numbers[i].toggleIsLocked();
 
       if (this.numbers[i].isLocked) {
-        if (this.options.unlocks.indexOf(LockOptions.RANDOM) !== -1) {
+        if (this.options.unlocks.indexOf(LockOptions.REVERT) !== -1) {
           setTimeout(
               () => {
                 this.numbers[i].isLocked = false;
@@ -134,7 +134,7 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
           );
         }
       } else {
-        if (this.options.locks.indexOf(LockOptions.RANDOM) !== -1) {
+        if (this.options.locks.indexOf(LockOptions.REVERT) !== -1) {
           setTimeout(
               () => {
                 this.numbers[i].isLocked = true;

@@ -1,13 +1,9 @@
 import {LockOptions} from './lock-options.model';
 
 export class Ionic4PhoneSpinnerOptions {
-  public locks:LockOptions[] = [
-    LockOptions.MANUAL
-  ];
+  public locks:LockOptions[] = [];
 
-  public unlocks:LockOptions[] = [
-    LockOptions.MANUAL
-  ];
+  public unlocks:LockOptions[] = [];
 
   public shuffleMilliseconds = 200;
   public shufflesPerClick = 5;
