@@ -38,7 +38,7 @@ export class HomePage {
       LockOptions.IGNORE
     ];
 
-    this.badOptions.locks = [
+    this.badOptions.unlocks = [
       LockOptions.DIFFERENT
     ];
 
