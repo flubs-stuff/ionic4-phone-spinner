@@ -4,7 +4,7 @@
 [![npm](https://img.shields.io/npm/dt/@flubs/ionic4-phone-spinner.svg)](https://www.npmjs.com/package/@flubs/ionic4-phone-spinner)
 [![npm](https://img.shields.io/npm/dm/@flubs/ionic4-phone-spinner.svg)](https://www.npmjs.com/package/@flubs/ionic4-phone-spinner)
 
-![](src/assets/images/example.gif)
+![](example.gif)
 
 ## Index ##
 
