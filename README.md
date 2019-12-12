@@ -16,7 +16,7 @@
 
 ## About ## 
 
-This is a bad phone number picker for Angular 2+. 
+This is a bad phone number picker for Angular 2+ and Ionic 4+. 
 
 * Try out [the demo](https://ionic4-phone-spinner.jrquick.com) to see it in action!
 * Checkout my other Ionic/Angular projects: [ionic4-tooltips](https://github.com/jrquick17/ionic4-tooltips) and [ionic4-phone-spinner](https://github.com/flubs-stuff/ionic4-phone-spinner)!
@@ -24,24 +24,74 @@ This is a bad phone number picker for Angular 2+.
 
 ## Setup ##
 
+### Install ###
 Install
 ```
-$ npm i ionic4-phone-spinner --save
+npm i ionic4-phone-spinner --save
 ```
 
+### Import ###
 Import within your module
+```typescript
+import {NgModule} from '@angular/core';
+import {IonicModule} from '@ionic/angular';
+
+import {Ionic4PhoneSpinnerModule} from '@flubs/ionic4-phone-spinner';
+
+@NgModule({
+  ...
+  imports: [
+    ...
+    IonicModule,
+    Ionic4PhoneSpinnerModule,
+    ...
+  ]
+})
+export class MyBadAppModule {}
+```
 
 ## Documentation ##
 
+### Attributes ###
+
+* `[number]` - The phone number
+* `[options]` - Customize the lock options ([see below](#options))
+* `(change)` - Emitted when the phone number changes
+
+#### Options ####
+
+* `locks` - List of features to apply to the lock button ([see below](#lock-options))
+* `shuffleMilliseconds` - Number of milliseconds to wait between digit changes
+* `shufflesPerClick` - Number of times to change unlocked digits
+* `unlocks` - List of features to apply to the unlock button ([see below](#lock-options))
+
+##### Lock Options #####
+
+* `DIFFERENT` - The incorrect digit locks/unlocks on click.
+* `IGNORE` - Lock/Unlock button sometimes ignores clicks
+* `LIAR` - Sometimes the lock/unlock is not actually unlocked/locked.
+* `ORDER` - The locks must be locked in order (left to right).
+* `REVERT` - Locks/unlocks randomly change state.
+* `REVERSE` - The locks must be locked in reverse order (right to left).
+* `SHUFFLE` - Lock toggles after each shuffle.
+
 ## Issues ##
 
-If you find any issues feel free to open a request in [the Issues tab](https://github.com/flubs-stuff/ionic4-phone-spinner/issues). If I have the time I will try to solve any issues but cannot make any guarantees. Feel free to contribute yourself. But honestly, with this type of project are the bugs not just free features?
+You're welcome! Are bugs not features? You can [submit a pull request](https://github.com/flubs-stuff/ionic4-phone-spinner/pulls) or [report an issue](https://github.com/flubs-stuff/ionic4-phone-spinner/issues).
 
 ### Demo ###
 
-Run `npm install` to get packages required for the demo and then run `ionic serve` to run locally.
+* [Check it out here!](https://ionic4-phone-spinner.jrquick.com)
+
+#### Run ####
+
+Go to demo directory
+Run `npm install` to get the required packages 
+Run `ionic serve` to run the demo
+
+## Contributing ##
+
 
 ### Thanks ###
 
 * [jrquick17](https://github.com/jrquick17)
-* [mandhu](https://github.com/mandhu)
