@@ -107,40 +107,46 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
       }
     }
 
-    if (this.numbers[i].isLocked && this.options.unlocks.indexOf(LockOptions.IGNORE) !== -1 && Math.random() < 0.5) {
-      canChange = false;
-    }
+    if (Math.random() < 0.5) {
+      if (this.numbers[i].isLocked && this.options.unlocks.indexOf(LockOptions.IGNORE) !== -1) {
+        canChange = false;
+      }
 
-    if (!this.numbers[i].isLocked && this.options.locks.indexOf(LockOptions.IGNORE) !== -1 && Math.random() < 0.5) {
-      canChange = false;
+      if (!this.numbers[i].isLocked && this.options.locks.indexOf(LockOptions.IGNORE) !== -1) {
+        canChange = false;
+      }
     }
 
     if (canChange) {
-      if (this.numbers[i].isLocked === true && this.options.locks.indexOf(LockOptions.DIFFERENT) !== -1) {
-        i = Math.round(Math.random() * 10);
-      } else if (this.numbers[i].isLocked === false && this.options.unlocks.indexOf(LockOptions.DIFFERENT) !== -1) {
-        i = Math.round(Math.random() * 10);
+      if (Math.random() < 0.20) {
+        if (this.numbers[i].isLocked === true && this.options.locks.indexOf(LockOptions.DIFFERENT) !== -1) {
+          i = Math.round(Math.random() * 10);
+        } else if (this.numbers[i].isLocked === false && this.options.unlocks.indexOf(LockOptions.DIFFERENT) !== -1) {
+          i = Math.round(Math.random() * 10);
+        }
       }
 
       this.numbers[i].toggleIsLocked();
 
-      if (this.numbers[i].isLocked) {
-        if (this.options.unlocks.indexOf(LockOptions.REVERT) !== -1) {
-          setTimeout(
-              () => {
-                this.numbers[i].isLocked = false;
-              },
-              Math.random() * 1000 * 60
-          );
-        }
-      } else {
-        if (this.options.locks.indexOf(LockOptions.REVERT) !== -1) {
-          setTimeout(
-              () => {
-                this.numbers[i].isLocked = true;
-              },
-              Math.random() * 1000 * 60
-          );
+      if (Math.random() < 0.25) {
+        if (this.numbers[i].isLocked) {
+          if (this.options.unlocks.indexOf(LockOptions.REVERT) !== -1) {
+            setTimeout(
+                () => {
+                  this.numbers[i].isLocked = false;
+                },
+                Math.random() * 1000 * 3
+            );
+          }
+        } else {
+          if (this.options.locks.indexOf(LockOptions.REVERT) !== -1) {
+            setTimeout(
+                () => {
+                  this.numbers[i].isLocked = true;
+                },
+                Math.random() * 1000 * 60
+            );
+          }
         }
       }
 
@@ -200,12 +206,10 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
   getIsLiar(i:number):boolean {
     let showCorrectIcon = true;
 
-    if (this.numbers[i].isLocked === true && this.options.locks.indexOf(LockOptions.LIAR) !== -1) {
-      if (Math.random() < 0.25) {
+    if (Math.random() < 0.20) {
+      if (this.numbers[i].isLocked === true && this.options.locks.indexOf(LockOptions.LIAR) !== -1) {
         showCorrectIcon = !this.numbers[i].isLocked;
-      }
-    } else if (this.numbers[i].isLocked === false && this.options.unlocks.indexOf(LockOptions.LIAR) !== -1) {
-      if (Math.random() < 0.25) {
+      } else if (this.numbers[i].isLocked === false && this.options.unlocks.indexOf(LockOptions.LIAR) !== -1) {
         showCorrectIcon = !this.numbers[i].isLocked;
       }
     }
