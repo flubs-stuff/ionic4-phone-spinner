@@ -12,10 +12,38 @@
                         [value]="d"
                         [checked]="d === difficulty">
       <ion-label>
-        {{ d }}
+        {{ d | titlecase }}
       </ion-label>
     </ion-segment-button>
   </ion-segment>
+
+  <ion-item-divider></ion-item-divider>
+
+  <ion-card *ngIf="difficulty === 'not good'"
+            style="height: 100%;">
+    <ion-title class="ion-text-center ion-margin ion-padding"
+               style="width: 100%;">
+      Enter your phone number
+    </ion-title>
+
+    <ion-card-subtitle class="ion-padding-horizontal">
+      Difficulties
+    </ion-card-subtitle>
+
+    <ul class="ion-margin-horizontal ion-padding-horizontal">
+      <li>Shuffle animation lasts 1 second.</li>
+    </ul>
+
+    <ion-item-divider></ion-item-divider>
+
+    <ion-card-content>
+      <ionic4-phone-spinner
+              [number]="value"
+              [options]="aightOptions"
+              (change)="change($event)">
+      </ionic4-phone-spinner>
+    </ion-card-content>
+  </ion-card>
 
   <ion-item-divider></ion-item-divider>
 
@@ -32,6 +60,8 @@
 
     <ul class="ion-margin-horizontal ion-padding-horizontal">
       <li>Shuffle animation lasts 1 second.</li>
+      <li>Lock button sometimes ignores clicks.</li>
+      <li>The incorrect digit locks/unlocks on click.</li>
     </ul>
 
     <ion-item-divider></ion-item-divider>
@@ -58,8 +88,10 @@
 
     <ul class="ion-margin-horizontal ion-padding-horizontal">
       <li>Shuffle animation lasts 1 second.</li>
-      <li>Lock button randomly ignores clicks.</li>
-      <li>Unlocks after each shuffle.</li>
+      <li>Lock/Unlock button sometimes ignores clicks.</li>
+      <li>The incorrect digit locks/unlocks on click.</li>
+      <li>Sometimes the lock is not actually locked.</li>
+      <li>Locks automatically unlock after each shuffle.</li>
     </ul>
 
     <ion-item-divider></ion-item-divider>
@@ -86,10 +118,11 @@
 
     <ul class="ion-margin-horizontal ion-padding-horizontal">
       <li>Shuffle animation lasts 2 seconds.</li>
-      <li>Lock and unlock buttons randomly ignore clicks.</li>
+      <li>Lock/Unlock button sometimes ignores clicks.</li>
+      <li>The incorrect digit locks/unlocks on click.</li>
+      <li>Sometimes the lock/unlock is not actually unlocked/locked.</li>
+      <li>Locks/unlocks randomly change state.</li>
       <li>Lock toggles after each shuffle.</li>
-      <li>Randomly unlocks after locking digit.</li>
-      <li>Randomly lies about being locked.</li>
     </ul>
 
     <ion-item-divider></ion-item-divider>
@@ -115,11 +148,13 @@
     </ion-card-subtitle>
 
     <ul class="ion-padding-horizontal ion-margin-horizontal">
-      <li>Shuffle animation lasts 3 seconds.</li>
-      <li>Lock and unlock buttons randomly ignore clicks.</li>
+      <li>Shuffle animation lasts 2 seconds.</li>
+      <li>Lock/Unlock button sometimes ignores clicks.</li>
+      <li>The incorrect digit locks/unlocks on click.</li>
+      <li>Sometimes the lock/unlock is not actually unlocked/locked.</li>
+      <li>Locks/unlocks randomly change state.</li>
       <li>Lock toggles after each shuffle.</li>
-      <li>Randomly locks or unlocks after unlocking or locking each digit.</li>
-      <li>Randomly lies about being locked and unlocked.</li>
+      <li>The locks must be locked in order (left to right).</li>
     </ul>
 
     <ion-item-divider></ion-item-divider>
