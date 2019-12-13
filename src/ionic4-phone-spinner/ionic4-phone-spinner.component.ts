@@ -22,6 +22,8 @@ import {ButtonOptions} from '../models/button-options.model';
   ]
 })
 export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
+  public settings:Ionic4PhoneSpinnerOptions = new Ionic4PhoneSpinnerOptions();
+
   public buttons:ButtonAttributesCollection = new ButtonAttributesCollection();
   public defaultButtons:ButtonAttributesCollection = new ButtonAttributesCollection();
 
@@ -30,6 +32,8 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
     'restart',
     'unlock'
   ];
+
+  public previousPositions = this.buttonTextOptions;
 
   public fullNumber:string = '0000000000';
   public numbers:Digit[] = [];
@@ -40,7 +44,12 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
   private _onTouched:() => void;
   private _propagateChange:any = () => {};
 
-  @Input() options:Ionic4PhoneSpinnerOptions = new Ionic4PhoneSpinnerOptions();
+  @Input()
+  set options(settings:Ionic4PhoneSpinnerOptions) {
+    this.settings = settings;
+
+    this.updateButtonOptionsContinuously();
+  }
 
   @Input()
   set number(digits:string) {
@@ -60,8 +69,6 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
 
   constructor() {
     this.change = new EventEmitter<string>();
-
-    this.updateButtonOptionsContinuously();
   }
 
   // ControlValueAccessor Requirements
@@ -104,7 +111,7 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
       this.numbers[i].isCorrectIcon = this.getIsLiar(i);
     }
 
-    if (this.options.buttons.indexOf(ButtonOptions.CHANGE_AFTER_UNLOCK_ALL) !== -1) {
+    if (this.settings.buttons.indexOf(ButtonOptions.CHANGE_AFTER_UNLOCK_ALL) !== -1) {
       this.updateButtons();
     }
   }
@@ -137,9 +144,9 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
     let showCorrectIcon = true;
 
     if (Math.random() < 0.20) {
-      if (this.numbers[i].isLocked === true && this.options.locks.indexOf(LockOptions.LIAR) !== -1) {
+      if (this.numbers[i].isLocked === true && this.settings.locks.indexOf(LockOptions.LIAR) !== -1) {
         showCorrectIcon = !this.numbers[i].isLocked;
-      } else if (this.numbers[i].isLocked === false && this.options.unlocks.indexOf(LockOptions.LIAR) !== -1) {
+      } else if (this.numbers[i].isLocked === false && this.settings.unlocks.indexOf(LockOptions.LIAR) !== -1) {
         showCorrectIcon = !this.numbers[i].isLocked;
       }
     }
@@ -154,7 +161,7 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
       }
     }
 
-    if (this.options.buttons.indexOf(ButtonOptions.CHANGE_AFTER_SHUFFLE) !== -1) {
+    if (this.settings.buttons.indexOf(ButtonOptions.CHANGE_AFTER_SHUFFLE) !== -1) {
       this.updateButtons();
     }
   }
@@ -165,7 +172,7 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
     this.numbers[i].randomize();
 
     if (typeof increment === 'undefined') {
-      increment = this.options.shufflesPerClick;
+      increment = this.settings.shufflesPerClick;
     }
 
     if (increment !== 0) {
@@ -175,13 +182,13 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
         () => {
           this.randomizeDigit(i, increment);
         },
-        this.options.shuffleMilliseconds
+        this.settings.shuffleMilliseconds
       );
     } else {
       this.isRandomizing = false;
 
-      const shuffleLock = this.options.locks.indexOf(LockOptions.SHUFFLE) !== -1;
-      const shuffleUnlock = this.options.unlocks.indexOf(LockOptions.SHUFFLE) !== -1;
+      const shuffleLock = this.settings.locks.indexOf(LockOptions.SHUFFLE) !== -1;
+      const shuffleUnlock = this.settings.unlocks.indexOf(LockOptions.SHUFFLE) !== -1;
       if (shuffleLock || shuffleUnlock) {
         for (let j = 0; j < 10; j++) {
           if (this.numbers[j].isLocked === false && shuffleLock) {
@@ -205,7 +212,7 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
   restart():void {
     this.reset();
 
-    if (this.options.buttons.indexOf(ButtonOptions.CHANGE_AFTER_RESTART) !== -1) {
+    if (this.settings.buttons.indexOf(ButtonOptions.CHANGE_AFTER_RESTART) !== -1) {
       this.updateButtons();
     }
   }
@@ -243,12 +250,12 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
   }
 
   updateButtonColor(button:string):void {
-    if (this.options.buttons.indexOf(ButtonOptions.UPDATE_COLOR) !== -1) {
+    if (this.settings.buttons.indexOf(ButtonOptions.UPDATE_COLOR) !== -1) {
       const changeColor = Math.random() < 0.3;
       if (changeColor) {
         let colors = ['success', 'warning', 'danger'];
 
-        if (this.options.buttons.indexOf(ButtonOptions.ALLOW_RANDOM_COLORS) !== -1) {
+        if (this.settings.buttons.indexOf(ButtonOptions.ALLOW_RANDOM_COLORS) !== -1) {
           colors = colors.concat(
               ['primary', 'secondary', 'tertiary', 'light', 'medium', 'dark']
           );
@@ -262,7 +269,7 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
   }
 
   updateButtonFill(button:string):void {
-    if (this.options.buttons.indexOf(ButtonOptions.UPDATE_FILL) !== -1) {
+    if (this.settings.buttons.indexOf(ButtonOptions.UPDATE_FILL) !== -1) {
       const changeFill = Math.random() < 0.3;
       if (changeFill) {
         const colors = ['clear', 'outline', 'solid'];
@@ -275,12 +282,12 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
   }
 
   updateButtonIcon(button:string):void {
-    if (this.options.buttons.indexOf(ButtonOptions.UPDATE_ICON) !== -1) {
+    if (this.settings.buttons.indexOf(ButtonOptions.UPDATE_ICON) !== -1) {
       const changeIcon = Math.random() < 0.3;
       if (changeIcon) {
         let icons = ['key', 'shuffle', 'nuclear'];
 
-        if (this.options.buttons.indexOf(ButtonOptions.ALLOW_RANDOM_ICONS) !== -1) {
+        if (this.settings.buttons.indexOf(ButtonOptions.ALLOW_RANDOM_ICONS) !== -1) {
           icons = icons.concat(
               [
                 'airplane', 'alarm', 'american-football', 'baseball', 'basketball', 'beer', 'bicycle', 'build', 'bug', 'cart',
@@ -297,40 +304,41 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
     }
   }
 
-  updateButtonPositions():void {
-    if (this.options.buttons.indexOf(ButtonOptions.UPDATE_POSITION) !== -1) {
-      const changePosition = Math.random() < 0.2;
+  updateButtonPositions(force?:boolean):void {
+    if (force || this.settings.buttons.indexOf(ButtonOptions.UPDATE_POSITION) !== -1) {
+      const changePosition = Math.random() < 1.2;
       if (changePosition) {
-        const options = this.shuffleArray(this.buttonTextOptions);
+        let options;
+        if (force) {
+          options = this.previousPositions;
+        } else {
+          options = this.shuffleArray(this.buttonTextOptions);
+        }
+
+        this.previousPositions = options;
 
         for (let i = 0; i < 3; i++) {
           const button = options[i];
 
-          if (
-              (i === 0 && button === 'shuffle') ||
-              (i === 1 && button === 'unlock') ||
-              (i === 2 && button === 'restart')
-          ) {
+          if (i === 0 && button === 'shuffle') {
             this.buttons[button].push = 0;
-          } else if (
-              (i === 1 && button === 'shuffle') ||
-              (i === 2 && button === 'unlock')
-          ) {
-            this.buttons[button].push = 4;
-          } else if (
-              (i === 2 && button === 'shuffle')
-          ) {
-            this.buttons[button].push = 8;
-          } else if (
-              (i === 0 && button === 'unlock') ||
-              (i === 1 && button === 'restart')
-          ) {
-            this.buttons[button].push = -4;
-          } else if (
-              (i === 0 && button === 'restart')
-          ) {
-            this.buttons[button].push = -8;
-          } else {
+          } else if (i === 1 && button === 'shuffle') {
+            this.buttons[button].push = this.buttons[options[0]].size;
+          } else if (i === 2 && button === 'shuffle') {
+            this.buttons[button].push = this.buttons[options[0]].size + this.buttons[options[1]].size;
+          } else if (i === 0 && button === 'unlock') {
+            this.buttons[button].push = -1 * this.buttons['shuffle'].size;
+          } else if (i === 1 && button === 'unlock') {
+            this.buttons[button].push = (-1 * this.buttons['shuffle'].size) + this.buttons[options[0]].size;
+          } else if (i === 2 && button === 'unlock') {
+            this.buttons[button].push = this.buttons['restart'].size;
+          } else if (i === 0 && button === 'restart') {
+            this.buttons[button].push = -1 * (this.buttons['unlock'].size + this.buttons['shuffle'].size);
+          } else if (i === 1 && button === 'restart') {
+            this.buttons[button].push = (-1 * (this.buttons['shuffle'].size + this.buttons['unlock'].size)) + this.buttons[options[0]].size;
+          } else if (i === 2 && button === 'restart') {
+            this.buttons[button].push = 0;
+          }  else {
             console.error('Unplanned for position.')
           }
         }
@@ -339,7 +347,7 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
   }
 
   updateButtonSizes():void {
-    if (this.options.buttons.indexOf(ButtonOptions.UPDATE_SIZE) !== -1) {
+    if (this.settings.buttons.indexOf(ButtonOptions.UPDATE_SIZE) !== -1) {
       const changeSize = Math.random() < 0.2;
       if (changeSize) {
         this.buttonTextOptions.forEach(
@@ -367,13 +375,15 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
           }
         }
       }
+
+      this.updateButtonPositions(true);
     }
 
     this.updateButtonPositions();
   }
 
   updateButtonText(button:string):void {
-    if (this.options.buttons.indexOf(ButtonOptions.UPDATE_TEXT) !== -1) {
+    if (this.settings.buttons.indexOf(ButtonOptions.UPDATE_TEXT) !== -1) {
       let changeText = Math.random() < 0.15;
       if (changeText) {
         this.buttons[button].text = this.getRandomItem(this.buttonTextOptions);
@@ -384,7 +394,7 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
   }
 
   updateButtonOptionsContinuously():void {
-    if (this.options.buttons.indexOf(ButtonOptions.CHANGE_CONTINUOUSLY) !== -1) {
+    if (this.settings.buttons.indexOf(ButtonOptions.CHANGE_CONTINUOUSLY) !== -1) {
       let seconds = Math.random() * 10000;
       if (seconds < 3000) {
         seconds = 3000;
@@ -403,7 +413,7 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
   updateLock(i:number):void {
     let canChange = true;
     if (i !== 0) {
-      if (this.options.locks.indexOf(LockOptions.ORDER) !== -1) {
+      if (this.settings.locks.indexOf(LockOptions.ORDER) !== -1) {
         if (i !== 0) {
           if (this.numbers[i - 1].isLocked === false) {
             canChange = false;
@@ -411,14 +421,14 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
         }
       }
 
-      if (this.options.unlocks.indexOf(LockOptions.ORDER) !== -1) {
+      if (this.settings.unlocks.indexOf(LockOptions.ORDER) !== -1) {
         if (i !== 0) {
           if (this.numbers[i - 1].isLocked === true) {
             canChange = false;
           }
         }
       }
-      if (this.options.locks.indexOf(LockOptions.REVERSE) !== -1) {
+      if (this.settings.locks.indexOf(LockOptions.REVERSE) !== -1) {
         if (i + 1 < this.numbers.length) {
           if (this.numbers[i + 1].isLocked === false) {
             canChange = false;
@@ -426,7 +436,7 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
         }
       }
 
-      if (this.options.unlocks.indexOf(LockOptions.REVERSE) !== -1) {
+      if (this.settings.unlocks.indexOf(LockOptions.REVERSE) !== -1) {
         if (i + 1 < this.numbers.length) {
           if (this.numbers[i + 1].isLocked === true) {
             canChange = false;
@@ -436,20 +446,20 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
     }
 
     if (Math.random() < 0.5) {
-      if (this.numbers[i].isLocked && this.options.unlocks.indexOf(LockOptions.IGNORE) !== -1) {
+      if (this.numbers[i].isLocked && this.settings.unlocks.indexOf(LockOptions.IGNORE) !== -1) {
         canChange = false;
       }
 
-      if (!this.numbers[i].isLocked && this.options.locks.indexOf(LockOptions.IGNORE) !== -1) {
+      if (!this.numbers[i].isLocked && this.settings.locks.indexOf(LockOptions.IGNORE) !== -1) {
         canChange = false;
       }
     }
 
     if (canChange) {
       if (Math.random() < 0.20) {
-        if (this.numbers[i].isLocked === true && this.options.locks.indexOf(LockOptions.DIFFERENT) !== -1) {
+        if (this.numbers[i].isLocked === true && this.settings.locks.indexOf(LockOptions.DIFFERENT) !== -1) {
           i = Math.round(Math.random() * 10);
-        } else if (this.numbers[i].isLocked === false && this.options.unlocks.indexOf(LockOptions.DIFFERENT) !== -1) {
+        } else if (this.numbers[i].isLocked === false && this.settings.unlocks.indexOf(LockOptions.DIFFERENT) !== -1) {
           i = Math.round(Math.random() * 10);
         }
       }
@@ -457,15 +467,15 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
       this.numbers[i].toggleIsLocked();
 
       if (
-          this.numbers[i].isLocked && this.options.buttons.indexOf(ButtonOptions.CHANGE_AFTER_LOCK) !== -1 ||
-          !this.numbers[i].isLocked && this.options.buttons.indexOf(ButtonOptions.CHANGE_AFTER_UNLOCK) !== -1
+          this.numbers[i].isLocked && this.settings.buttons.indexOf(ButtonOptions.CHANGE_AFTER_LOCK) !== -1 ||
+          !this.numbers[i].isLocked && this.settings.buttons.indexOf(ButtonOptions.CHANGE_AFTER_UNLOCK) !== -1
       ) {
         this.updateButtons();
       }
 
       if (Math.random() < 0.25) {
         if (this.numbers[i].isLocked) {
-          if (this.options.unlocks.indexOf(LockOptions.REVERT) !== -1) {
+          if (this.settings.unlocks.indexOf(LockOptions.REVERT) !== -1) {
             setTimeout(
                 () => {
                   this.numbers[i].isLocked = false;
@@ -474,7 +484,7 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
             );
           }
         } else {
-          if (this.options.locks.indexOf(LockOptions.REVERT) !== -1) {
+          if (this.settings.locks.indexOf(LockOptions.REVERT) !== -1) {
             setTimeout(
                 () => {
                   this.numbers[i].isLocked = true;
