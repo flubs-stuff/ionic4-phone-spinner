@@ -104,6 +104,9 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
       this.numbers[i].isCorrectColor = this.getIsLiar(i);
       this.numbers[i].isCorrectIcon = this.getIsLiar(i);
     }
+
+    // TODO: Check Settings
+    this.updateButtons();
   }
 
   getButtonColor(button):number {
@@ -146,6 +149,9 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
         this.randomizeDigit(i);
       }
     }
+
+    // TODO: Check Settings
+    this.updateButtons();
   }
 
   randomizeDigit(i:number, increment?:number):void {
@@ -191,9 +197,19 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
     this.randomize();
   }
 
+  restart():void {
+    this.reset();
+
+    // TODO: Check Settings
+    this.updateButtons();
+  }
+
   toggleLock(i:number):void {
     // TODO: Add modal
     this.updateLock(i);
+
+    // TODO: Check settings
+    this.updateButtons();
   }
 
   updateButtons():void {
