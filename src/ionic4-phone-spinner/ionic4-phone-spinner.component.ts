@@ -40,14 +40,6 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
   private _onTouched:() => void;
   private _propagateChange:any = () => {};
 
-  @Input()
-  set buttonOptions(buttonOptions:ButtonAttributesCollection) {
-    if (typeof buttonOptions !== 'undefined') {
-      this.buttons = new ButtonAttributesCollection();
-      this.defaultButtons = new ButtonAttributesCollection();
-    }
-  }
-
   @Input() options:Ionic4PhoneSpinnerOptions = new Ionic4PhoneSpinnerOptions();
 
   @Input()
