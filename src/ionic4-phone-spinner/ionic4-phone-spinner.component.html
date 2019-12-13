@@ -61,14 +61,15 @@
       </ion-button>
     </ion-col>
 
-<!--    <div class="inline-label"-->
-<!--         style="font-weight: bolder; left: -9px;">-</div>-->
-
     <ion-col [sizeXs]="3"
              [sizeSm]="3"
              [sizeMd]="1"
              class="ion-text-center"
              *ngFor="let i of [] | range:4: 6;">
+      <div *ngIf="i === 6"
+           class="inline-label hide-below-sm"
+           style="font-weight: bolder; left: -9px;">-</div>
+
       <ion-chip class="ion-justify-content-center"
                 style="font-weight: bolder;">
         <ion-label>{{ numbers[i].value }}</ion-label>

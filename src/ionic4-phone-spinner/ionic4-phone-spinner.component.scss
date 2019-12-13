@@ -90,3 +90,9 @@ input[type=number]::-webkit-outer-spin-button {
   color: white;
   padding-left: 10px;
 }
+
+@media only screen and (max-width: 767px) {
+  .hide-below-sm {
+    display: none;
+  }
+}
