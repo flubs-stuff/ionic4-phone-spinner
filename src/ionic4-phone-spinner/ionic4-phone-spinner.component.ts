@@ -33,6 +33,14 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
   private _onTouched:() => void;
   private _propagateChange:any = () => {};
 
+  @Input()
+  set buttonOptions(buttonOptions:ButtonOptions) {
+    if (typeof buttonOptions !== 'undefined') {
+      this.buttons = new ButtonOptions();
+      this.defaultButtons = new ButtonOptions();
+    }
+  }
+
   @Input() options:Ionic4PhoneSpinnerOptions = new Ionic4PhoneSpinnerOptions();
 
   @Input()
@@ -53,6 +61,8 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
 
   constructor() {
     this.change = new EventEmitter<string>();
+
+    this.updateButtonOptionsContinuously();
   }
 
   // ControlValueAccessor Requirements
@@ -97,78 +107,22 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
   }
 
   getButtonColor(button):number {
-    const changeColor = Math.random() < 0.3;
-    if (changeColor) {
-      const colors = ['primary', 'secondary', 'tertiary', 'success', 'warning', 'danger', 'light', 'medium', 'dark'];
-
-      this.buttons[button].color = this.getRandomItem(colors);
-    } else {
-      this.buttons[button].color = this.defaultButtons[button].color;
-    }
-
     return this.buttons[button].color;
   }
 
   getButtonFill(button):number {
-    const changeFill = Math.random() < 0.3;
-    if (changeFill) {
-      const colors = ['clear', 'outline', 'solid'];
-
-      this.buttons[button].fill = this.getRandomItem(colors);
-    } else {
-      this.buttons[button].fill = this.defaultButtons[button].fill;
-    }
-
     return this.buttons[button].fill;
   }
 
   getButtonIcon(button):number {
-    const changeIcon = Math.random() < 0.3;
-    if (changeIcon) {
-      let icons = ['key', 'shuffle', 'nuclear'];
-
-      let randomIcon = Math.random() < 0.3;
-      if (randomIcon) {
-        icons = icons.concat(
-            [
-                'airplane', 'alarm', 'american-football', 'baseball', 'basketball', 'beer', 'bicycle', 'build', 'bug', 'cart',
-                'cloud', 'color-fill', 'flash', 'flask', 'happy', 'heart', 'help-buoy', 'ice-cream', 'medal', 'lock',
-                'microphone', 'moon', 'notifications', 'nutrition', 'pin', 'sad', 'save', 'snow', 'train', 'wine'
-            ]
-        );
-      }
-
-      this.buttons[button].icon = this.getRandomItem(icons);
-    } else {
-      this.buttons[button].icon = this.defaultButtons[button].icon;
-    }
-
     return this.buttons[button].icon;
   }
 
   getButtonSize(button):number {
-    const changeSize = Math.random() < 0.1;
-    if (changeSize) {
-      const sizes = [4];
-
-      this.buttons[button].size = this.getRandomItem(sizes);
-    } else {
-      this.buttons[button].size = this.defaultButtons[button].size;
-    }
-
     return this.buttons[button].size;
   }
 
   getButtonText(button):number {
-    const changeText = Math.random() < 0.15;
-    if (changeText) {
-      // const texts = [4];
-      //
-      // this.buttons[button].text = this.getRandomItem(texts);
-    } else {
-      this.buttons[button].text = this.defaultButtons[button].text;
-    }
-
     return this.buttons[button].text;
   }
 
@@ -240,6 +194,106 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
   toggleLock(i:number):void {
     // TODO: Add modal
     this.updateLock(i);
+  }
+
+  updateButtons():void {
+    const buttons = [
+        'shuffle',
+        'restart',
+        'unlock'
+    ];
+
+    buttons.forEach(
+      (button) => {
+        this.updateButtonColor(button);
+        this.updateButtonFill(button);
+        this.updateButtonIcon(button);
+        this.updateButtonSize(button);
+        this.updateButtonText(button);
+      }
+    );
+  }
+
+  updateButtonColor(button:string):void {
+    const changeColor = Math.random() < 0.3;
+    if (changeColor) {
+      const colors = ['primary', 'secondary', 'tertiary', 'success', 'warning', 'danger', 'light', 'medium', 'dark'];
+
+      this.buttons[button].color = this.getRandomItem(colors);
+    } else {
+      this.buttons[button].color = this.defaultButtons[button].color;
+    }
+  }
+
+  updateButtonFill(button:string):void {
+    const changeFill = Math.random() < 0.3;
+    if (changeFill) {
+      const colors = ['clear', 'outline', 'solid'];
+
+      this.buttons[button].fill = this.getRandomItem(colors);
+    } else {
+      this.buttons[button].fill = this.defaultButtons[button].fill;
+    }
+  }
+
+  updateButtonIcon(button:string):void {
+    const changeIcon = Math.random() < 0.3;
+    if (changeIcon) {
+      let icons = ['key', 'shuffle', 'nuclear'];
+
+      let randomIcon = Math.random() < 0.3;
+      if (randomIcon) {
+        icons = icons.concat(
+            [
+              'airplane', 'alarm', 'american-football', 'baseball', 'basketball', 'beer', 'bicycle', 'build', 'bug', 'cart',
+              'cloud', 'color-fill', 'flash', 'flask', 'happy', 'heart', 'help-buoy', 'ice-cream', 'medal', 'lock',
+              'microphone', 'moon', 'notifications', 'nutrition', 'pin', 'sad', 'save', 'snow', 'train', 'wine'
+            ]
+        );
+      }
+
+      this.buttons[button].icon = this.getRandomItem(icons);
+    } else {
+      this.buttons[button].icon = this.defaultButtons[button].icon;
+    }
+  }
+
+  updateButtonSize(button:string):void {
+    const changeSize = Math.random() < 0.1;
+    if (changeSize) {
+      const sizes = [4];
+
+      this.buttons[button].size = this.getRandomItem(sizes);
+    } else {
+      this.buttons[button].size = this.defaultButtons[button].size;
+    }
+  }
+
+  updateButtonText(button:string):void {
+    let changeText = Math.random() < 0.15;
+    if (changeText) {
+      // const texts = [4];
+      //
+      // this.buttons[button].text = this.getRandomItem(texts);
+    } else {
+      this.buttons[button].text = this.defaultButtons[button].text;
+    }
+  }
+
+  updateButtonOptionsContinuously():void {
+    // TODO: Check settings
+    let seconds = Math.random() * 10000;
+    if (seconds < 3000) {
+      seconds = 3000;
+    }
+
+    setTimeout(
+        () => {
+          this.updateButtons();
+          this.updateButtonOptionsContinuously();
+        },
+        seconds
+    );
   }
 
   updateLock(i:number):void {
