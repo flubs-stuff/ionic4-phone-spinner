@@ -26,7 +26,7 @@ export class HomePage {
   public badOptions:Ionic4PhoneSpinnerOptions;
   public badderOptions:Ionic4PhoneSpinnerOptions;
   public baddestOptions:Ionic4PhoneSpinnerOptions;
-  public fuOptions:Ionic4PhoneSpinnerOptions;
+  public satanOptions:Ionic4PhoneSpinnerOptions;
 
   constructor() {
     this.aightOptions = new Ionic4PhoneSpinnerOptions();
@@ -112,9 +112,9 @@ export class HomePage {
     this.baddestOptions.shufflesPerClick = 10;
     this.baddestOptions.shuffleMilliseconds = 200;
 
-    this.fuOptions = new Ionic4PhoneSpinnerOptions();
+    this.satanOptions = new Ionic4PhoneSpinnerOptions();
 
-    this.fuOptions.locks = [
+    this.satanOptions.locks = [
       LockOptions.DIFFERENT,
       LockOptions.IGNORE,
       LockOptions.LIAR,
@@ -123,7 +123,7 @@ export class HomePage {
       LockOptions.SHUFFLE
     ];
 
-    this.fuOptions.unlocks = [
+    this.satanOptions.unlocks = [
       LockOptions.DIFFERENT,
       LockOptions.IGNORE,
       LockOptions.LIAR,
@@ -131,7 +131,7 @@ export class HomePage {
       LockOptions.SHUFFLE
     ];
 
-    this.fuOptions.buttons = [
+    this.satanOptions.buttons = [
       ButtonOptions.ALLOW_RANDOM_COLORS,
       ButtonOptions.ALLOW_RANDOM_ICONS,
       ButtonOptions.CHANGE_AFTER_UNLOCK_ALL,
@@ -148,8 +148,8 @@ export class HomePage {
       ButtonOptions.UPDATE_TEXT
     ];
 
-    this.fuOptions.shufflesPerClick = 20;
-    this.fuOptions.shuffleMilliseconds = 150;
+    this.satanOptions.shufflesPerClick = 20;
+    this.satanOptions.shuffleMilliseconds = 150;
 
     this.resetValue();
   }
