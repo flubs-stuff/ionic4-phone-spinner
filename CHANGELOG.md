@@ -8,6 +8,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Released]
 
+## [1.1.0]
+### Added
+- Make buttons change color by [jrquick17](https://github.com/jrquick17)
+- Make buttons change fill style by [jrquick17](https://github.com/jrquick17)
+- Make buttons change icon by [jrquick17](https://github.com/jrquick17)
+- Make buttons change position by [jrquick17](https://github.com/jrquick17)
+- Make buttons change size by [jrquick17](https://github.com/jrquick17)
+- Make buttons change text by [jrquick17](https://github.com/jrquick17)
+- Change buttons after user locks or unlocks by [jrquick17](https://github.com/jrquick17)
+- Change buttons after user shuffles by [jrquick17](https://github.com/jrquick17)
+- Change buttons after user restarts by [jrquick17](https://github.com/jrquick17)
+- Change buttons after user unlocks all by [jrquick17](https://github.com/jrquick17)
+- Change buttons non stop by [jrquick17](https://github.com/jrquick17)
+
 ## [1.0.0]
 ### Added
 - A bad phone number picker by [jrquick17](https://github.com/jrquick17)

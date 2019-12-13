@@ -60,10 +60,28 @@ export class MyBadAppModule {}
 
 #### Options ####
 
+* `buttons` - List of features to apply to the control buttons ([see below](#button-options))
 * `locks` - List of features to apply to the lock button ([see below](#lock-options))
 * `shuffleMilliseconds` - Number of milliseconds to wait between digit changes
 * `shufflesPerClick` - Number of times to change unlocked digits
 * `unlocks` - List of features to apply to the unlock button ([see below](#lock-options))
+
+##### Button Options #####
+
+* `ALLOW_RANDOM_COLORS` - Adds additional random colors to buttons.
+* `ALLOW_RANDOM_ICONS` - Adds additional random icons to buttons.
+* `CHANGE_AFTER_UNLOCK_ALL` - Change button styles after unlock all.
+* `CHANGE_AFTER_LOCK` - Change button styles after locking a digit.
+* `CHANGE_AFTER_RESTART` - Change button styles after restart.
+* `CHANGE_AFTER_SHUFFLE` - Change button styles after shuffle.
+* `CHANGE_AFTER_UNLOCK` - Change button styles after unlocking a digit.
+* `CHANGE_CONTINUOUSLY` - Change button styles constantly and at random.
+* `UPDATE_COLOR` - When updating button style change the color.
+* `UPDATE_FILL` - When updating button style change the fill.
+* `UPDATE_ICON` - When updating button style change the icon.
+* `UPDATE_POSITION` - When updating button style change the position.
+* `UPDATE_SIZE` - When updating button style change the size.
+* `UPDATE_TEXT` - When updating button style change the text.
 
 ##### Lock Options #####
 
