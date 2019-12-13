@@ -24,6 +24,12 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
   public buttons:ButtonOptions = new ButtonOptions();
   public defaultButtons:ButtonOptions = new ButtonOptions();
 
+  public buttonTextOptions = [
+    'shuffle',
+    'restart',
+    'unlock'
+  ];
+
   public fullNumber:string = '0000000000';
   public numbers:Digit[] = [];
 
@@ -213,18 +219,12 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
   }
 
   updateButtons():void {
-    const buttons = [
-        'shuffle',
-        'restart',
-        'unlock'
-    ];
-
-    buttons.forEach(
+    this.buttonTextOptions.forEach(
       (button) => {
         this.updateButtonColor(button);
         this.updateButtonFill(button);
         this.updateButtonIcon(button);
-        this.updateButtonSize(button);
+        this.updateButtonSizes();
         this.updateButtonText(button);
       }
     );
@@ -233,7 +233,14 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
   updateButtonColor(button:string):void {
     const changeColor = Math.random() < 0.3;
     if (changeColor) {
-      const colors = ['primary', 'secondary', 'tertiary', 'success', 'warning', 'danger', 'light', 'medium', 'dark'];
+      let colors = ['success', 'warning', 'danger'];
+
+      let randomColor = Math.random() < 0.3;
+      if (randomColor) {
+        colors = colors.concat(
+            ['primary', 'secondary', 'tertiary', 'light', 'medium', 'dark']
+        );
+      }
 
       this.buttons[button].color = this.getRandomItem(colors);
     } else {
@@ -274,14 +281,31 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
     }
   }
 
-  updateButtonSize(button:string):void {
-    const changeSize = Math.random() < 0.1;
+  updateButtonSizes():void {
+    const changeSize = Math.random() < 0.2;
     if (changeSize) {
-      const sizes = [4];
+      this.buttonTextOptions.forEach(
+        (button) => {
+          const sizes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-      this.buttons[button].size = this.getRandomItem(sizes);
-    } else {
-      this.buttons[button].size = this.defaultButtons[button].size;
+          this.buttons[button].size = this.getRandomItem(sizes);
+        }
+      );
+
+      let totalSize = 0;
+      this.buttonTextOptions.forEach(
+        (buttonTitle) => {
+          totalSize += this.buttons[buttonTitle].size;
+        }
+      );
+
+      while (totalSize > 12) {
+        totalSize--;
+
+        const toBeReduced = this.getRandomItem(this.buttonTextOptions);
+
+        this.buttons[toBeReduced].size = this.buttons[toBeReduced].size - 1;
+      }
     }
   }
 
