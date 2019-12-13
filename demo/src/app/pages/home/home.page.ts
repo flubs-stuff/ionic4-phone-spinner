@@ -103,7 +103,6 @@ export class HomePage {
       ButtonOptions.CHANGE_AFTER_SHUFFLE,
       ButtonOptions.CHANGE_AFTER_UNLOCK,
       ButtonOptions.UPDATE_COLOR,
-      ButtonOptions.UPDATE_FILL,
       ButtonOptions.UPDATE_ICON,
       ButtonOptions.UPDATE_POSITION,
       ButtonOptions.UPDATE_SIZE
