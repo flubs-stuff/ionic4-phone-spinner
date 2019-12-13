@@ -78,10 +78,28 @@ export class MyBadAppModule {}</code></pre></div><h2 id="documentation">Document
 </ul>
 <h4 id="options">Options</h4>
 <ul>
+<li><code>buttons</code> - List of features to apply to the control buttons (<a href="#button-options">see below</a>)</li>
 <li><code>locks</code> - List of features to apply to the lock button (<a href="#lock-options">see below</a>)</li>
 <li><code>shuffleMilliseconds</code> - Number of milliseconds to wait between digit changes</li>
 <li><code>shufflesPerClick</code> - Number of times to change unlocked digits</li>
 <li><code>unlocks</code> - List of features to apply to the unlock button (<a href="#lock-options">see below</a>)</li>
+</ul>
+<h5 id="button-options">Button Options</h5>
+<ul>
+<li><code>ALLOW_RANDOM_COLORS</code> - Adds additional random colors to buttons.</li>
+<li><code>ALLOW_RANDOM_ICONS</code> - Adds additional random icons to buttons.</li>
+<li><code>CHANGE_AFTER_UNLOCK_ALL</code> - Change button styles after unlock all.</li>
+<li><code>CHANGE_AFTER_LOCK</code> - Change button styles after locking a digit.</li>
+<li><code>CHANGE_AFTER_RESTART</code> - Change button styles after restart.</li>
+<li><code>CHANGE_AFTER_SHUFFLE</code> - Change button styles after shuffle.</li>
+<li><code>CHANGE_AFTER_UNLOCK</code> - Change button styles after unlocking a digit.</li>
+<li><code>CHANGE_CONTINUOUSLY</code> - Change button styles constantly and at random.</li>
+<li><code>UPDATE_COLOR</code> - When updating button style change the color.</li>
+<li><code>UPDATE_FILL</code> - When updating button style change the fill.</li>
+<li><code>UPDATE_ICON</code> - When updating button style change the icon.</li>
+<li><code>UPDATE_POSITION</code> - When updating button style change the position.</li>
+<li><code>UPDATE_SIZE</code> - When updating button style change the size.</li>
+<li><code>UPDATE_TEXT</code> - When updating button style change the text.</li>
 </ul>
 <h5 id="lock-options">Lock Options</h5>
 <ul>
