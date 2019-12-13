@@ -1,6 +1,7 @@
 import {Component, EventEmitter, forwardRef, Input, Output} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
+import {ButtonOptions} from '../models/button-options.model';
 import {Digit} from '../models/digit.model';
 import {LockOptions} from '../models/lock-options.model';
 import {Ionic4PhoneSpinnerOptions} from '../models/ionic4-phone-spinner.model';
@@ -20,6 +21,9 @@ import {Ionic4PhoneSpinnerOptions} from '../models/ionic4-phone-spinner.model';
   ]
 })
 export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
+  public buttons:ButtonOptions = new ButtonOptions();
+  public defaultButtons:ButtonOptions = new ButtonOptions();
+
   public fullNumber:string = '0000000000';
   public numbers:Digit[] = [];
 
@@ -51,6 +55,17 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
     this.change = new EventEmitter<string>();
   }
 
+  // ControlValueAccessor Requirements
+  private _onChange():void {
+    this.fullNumber = '';
+    for (let i = 0; i < 10; i++) {
+      this.fullNumber += '' + this.numbers[i].value;
+    }
+
+    this._propagateChange(this.fullNumber);
+    this.change.emit(this.fullNumber);
+  }
+
   writeValue(value:string):void {
     this.fullNumber = value || '0000000000';
   }
@@ -65,6 +80,161 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
 
   setDisabledState?(isDisabled:boolean):void {
     this.disabled = isDisabled;
+  }
+
+  // Functions
+
+  getRandomItem(array:any[]) {
+    return array[Math.round(Math.random() * (array.length - 1))];
+  }
+
+  clearLocks():void {
+    for (let i = 0; i < 10; i++) {
+      this.numbers[i].isLocked = false;
+      this.numbers[i].isCorrectColor = this.getIsLiar(i);
+      this.numbers[i].isCorrectIcon = this.getIsLiar(i);
+    }
+  }
+
+  getButtonColor(button):number {
+    const changeColor = Math.random() < 0.3;
+    if (changeColor) {
+      const colors = ['primary', 'secondary', 'tertiary', 'success', 'warning', 'danger', 'light', 'medium', 'dark'];
+
+      this.buttons[button].color = this.getRandomItem(colors);
+    } else {
+      this.buttons[button].color = this.defaultButtons[button].color;
+    }
+
+    return this.buttons[button].color;
+  }
+
+  getButtonFill(button):number {
+    const changeFill = Math.random() < 0.3;
+    if (changeFill) {
+      const colors = ['clear', 'outline', 'solid'];
+
+      this.buttons[button].fill = this.getRandomItem(colors);
+    } else {
+      this.buttons[button].fill = this.defaultButtons[button].fill;
+    }
+
+    return this.buttons[button].fill;
+  }
+
+  getButtonIcon(button):number {
+    const changeIcon = Math.random() < 0.3;
+    if (changeIcon) {
+      let icons = ['key', 'shuffle', 'nuclear'];
+
+      let randomIcon = Math.random() < 0.3;
+      if (randomIcon) {
+        icons = icons.concat(
+            [
+                'airplane', 'alarm', 'american-football', 'baseball', 'basketball', 'beer', 'bicycle', 'build', 'bug', 'cart',
+                'cloud', 'color-fill', 'flash', 'flask', 'happy', 'heart', 'help-buoy', 'ice-cream', 'medal', 'lock',
+                'microphone', 'moon', 'notifications', 'nutrition', 'pin', 'sad', 'save', 'snow', 'train', 'wine'
+            ]
+        );
+      }
+
+      this.buttons[button].icon = this.getRandomItem(icons);
+    } else {
+      this.buttons[button].icon = this.defaultButtons[button].icon;
+    }
+
+    return this.buttons[button].icon;
+  }
+
+  getButtonSize(button):number {
+    const changeSize = Math.random() < 0.1;
+    if (changeSize) {
+      const sizes = [4];
+
+      this.buttons[button].size = this.getRandomItem(sizes);
+    } else {
+      this.buttons[button].size = this.defaultButtons[button].size;
+    }
+
+    return this.buttons[button].size;
+  }
+
+  getButtonText(button):number {
+    const changeText = Math.random() < 0.15;
+    if (changeText) {
+      // const texts = [4];
+      //
+      // this.buttons[button].text = this.getRandomItem(texts);
+    } else {
+      this.buttons[button].text = this.defaultButtons[button].text;
+    }
+
+    return this.buttons[button].text;
+  }
+
+  getIsLiar(i:number):boolean {
+    let showCorrectIcon = true;
+
+    if (Math.random() < 0.20) {
+      if (this.numbers[i].isLocked === true && this.options.locks.indexOf(LockOptions.LIAR) !== -1) {
+        showCorrectIcon = !this.numbers[i].isLocked;
+      } else if (this.numbers[i].isLocked === false && this.options.unlocks.indexOf(LockOptions.LIAR) !== -1) {
+        showCorrectIcon = !this.numbers[i].isLocked;
+      }
+    }
+
+    return showCorrectIcon;
+  }
+
+  randomize():void {
+    for (let i = 0; i < 10; i++) {
+      if (this.numbers[i].isLocked === false) {
+        this.randomizeDigit(i);
+      }
+    }
+  }
+
+  randomizeDigit(i:number, increment?:number):void {
+    this.isRandomizing = true;
+
+    this.numbers[i].randomize();
+
+    if (typeof increment === 'undefined') {
+      increment = this.options.shufflesPerClick;
+    }
+
+    if (increment !== 0) {
+      increment--;
+
+      setTimeout(
+        () => {
+          this.randomizeDigit(i, increment);
+        },
+        this.options.shuffleMilliseconds
+      );
+    } else {
+      this.isRandomizing = false;
+
+      const shuffleLock = this.options.locks.indexOf(LockOptions.SHUFFLE) !== -1;
+      const shuffleUnlock = this.options.unlocks.indexOf(LockOptions.SHUFFLE) !== -1;
+      if (shuffleLock || shuffleUnlock) {
+        for (let j = 0; j < 10; j++) {
+          if (this.numbers[j].isLocked === false && shuffleLock) {
+            this.numbers[j].isLocked = true;
+          } else if (this.numbers[j].isLocked === true && shuffleUnlock) {
+            this.numbers[j].isLocked = false;
+          }
+
+          this.numbers[j].isCorrectColor = this.getIsLiar(i);
+          this.numbers[j].isCorrectIcon = this.getIsLiar(i);
+        }
+      }
+    }
+  }
+
+  reset():void {
+    this.clearLocks();
+    this.randomize();
   }
 
   toggleLock(i:number):void {
@@ -155,88 +325,5 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
 
       this._onChange();
     }
-  }
-
-  randomizeDigit(i:number, increment?:number):void {
-    this.isRandomizing = true;
-
-    this.numbers[i].randomize();
-
-    if (typeof increment === 'undefined') {
-      increment = this.options.shufflesPerClick;
-    }
-
-    if (increment !== 0) {
-      increment--;
-
-      setTimeout(
-        () => {
-          this.randomizeDigit(i, increment);
-        },
-        this.options.shuffleMilliseconds
-      );
-    } else {
-      this.isRandomizing = false;
-
-      const shuffleLock = this.options.locks.indexOf(LockOptions.SHUFFLE) !== -1;
-      const shuffleUnlock = this.options.unlocks.indexOf(LockOptions.SHUFFLE) !== -1;
-      if (shuffleLock || shuffleUnlock) {
-        for (let j = 0; j < 10; j++) {
-          if (this.numbers[j].isLocked === false && shuffleLock) {
-            this.numbers[j].isLocked = true;
-          } else if (this.numbers[j].isLocked === true && shuffleUnlock) {
-            this.numbers[j].isLocked = false;
-          }
-
-          this.numbers[j].isCorrectColor = this.getIsLiar(i);
-          this.numbers[j].isCorrectIcon = this.getIsLiar(i);
-        }
-      }
-    }
-  }
-
-  clearLocks():void {
-    for (let i = 0; i < 10; i++) {
-      this.numbers[i].isLocked = false;
-      this.numbers[i].isCorrectColor = this.getIsLiar(i);
-      this.numbers[i].isCorrectIcon = this.getIsLiar(i);
-    }
-  }
-
-  getIsLiar(i:number):boolean {
-    let showCorrectIcon = true;
-
-    if (Math.random() < 0.20) {
-      if (this.numbers[i].isLocked === true && this.options.locks.indexOf(LockOptions.LIAR) !== -1) {
-        showCorrectIcon = !this.numbers[i].isLocked;
-      } else if (this.numbers[i].isLocked === false && this.options.unlocks.indexOf(LockOptions.LIAR) !== -1) {
-        showCorrectIcon = !this.numbers[i].isLocked;
-      }
-    }
-
-    return showCorrectIcon;
-  }
-
-  reset():void {
-    this.clearLocks();
-    this.randomize();
-  }
-
-  randomize():void {
-    for (let i = 0; i < 10; i++) {
-      if (this.numbers[i].isLocked === false) {
-        this.randomizeDigit(i);
-      }
-    }
-  }
-
-  private _onChange():void {
-    this.fullNumber = '';
-    for (let i = 0; i < 10; i++) {
-      this.fullNumber += '' + this.numbers[i].value;
-    }
-
-    this._propagateChange(this.fullNumber);
-    this.change.emit(this.fullNumber);
   }
 }

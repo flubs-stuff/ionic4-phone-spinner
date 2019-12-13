@@ -95,65 +95,57 @@
 
   <ion-row class="ionic4-phone-spinner">
     <ion-col [size]="12"
-             [sizeSm]="12"
-             [sizeMd]="12"
-             [sizeLg]="12"
-             [sizeXl]="12">
-      <ion-row>
-        <ion-col [size]="12"
-                 [sizeSm]="4"
-                 [sizeMd]="4"
-                 [sizeLg]="4"
-                 [sizeXl]="4">
-          <ion-button [color]="'success'"
-                      [expand]="'block'"
-                      [fill]="'solid'"
-                      (click)="randomize()"
-                      [disabled]="disabled || isRandomizing">
-            <ion-icon [slot]="'icon-only'"
-                      [name]="'shuffle'"
-                      [color]="'light'"></ion-icon>
+             [sizeSm]="getButtonSize('shuffle')"
+             [sizeMd]="getButtonSize('shuffle')"
+             [sizeLg]="getButtonSize('shuffle')"
+             [sizeXl]="getButtonSize('shuffle')">
+      <ion-button [color]="getButtonColor('shuffle')"
+                  [expand]="'block'"
+                  [fill]="getButtonFill('shuffle')"
+                  (click)="randomize()"
+                  [disabled]="disabled || isRandomizing">
+        <ion-icon [slot]="'icon-only'"
+                  [name]="getButtonIcon('shuffle')"
+                  [color]="'light'"></ion-icon>
 
-            <span class="ionic4-phone-spinner-button-text">Shuffle</span>
-          </ion-button>
-        </ion-col>
+        <span class="ionic4-phone-spinner-button-text">{{ getButtonText('shuffle') }}</span>
+      </ion-button>
+    </ion-col>
 
-        <ion-col [size]="12"
-                 [sizeSm]="4"
-                 [sizeMd]="4"
-                 [sizeLg]="4"
-                 [sizeXl]="4">
-          <ion-button [color]="'warning'"
-                      [expand]="'block'"
-                      [fill]="'solid'"
-                      (click)="clearLocks()"
-                      [disabled]="disabled || isRandomizing">
-            <ion-icon [slot]="'icon-only'"
-                      [name]="'key'"
-                      [color]="'light'"></ion-icon>
+    <ion-col [size]="12"
+             [sizeSm]="getButtonSize('unlock')"
+             [sizeMd]="getButtonSize('unlock')"
+             [sizeLg]="getButtonSize('unlock')"
+             [sizeXl]="getButtonSize('unlock')">
+      <ion-button [color]="getButtonColor('unlock')"
+                  [expand]="'block'"
+                  [fill]="getButtonFill('unlock')"
+                  (click)="clearLocks()"
+                  [disabled]="disabled || isRandomizing">
+        <ion-icon [slot]="'icon-only'"
+                  [name]="getButtonIcon('unlock')"
+                  [color]="'light'"></ion-icon>
 
-            <span class="ionic4-phone-spinner-button-text">Unlock All</span>
-          </ion-button>
-        </ion-col>
+        <span class="ionic4-phone-spinner-button-text">{{ getButtonText('unlock') }}</span>
+      </ion-button>
+    </ion-col>
 
-        <ion-col [size]="12"
-                 [sizeSm]="4"
-                 [sizeMd]="4"
-                 [sizeLg]="4"
-                 [sizeXl]="4">
-          <ion-button [color]="'danger'"
-                      [expand]="'block'"
-                      [fill]="'solid'"
-                      (click)="reset()"
-                      [disabled]="disabled || isRandomizing">
-            <ion-icon [slot]="'icon-only'"
-                      [name]="'nuclear'"
-                      [color]="'light'"></ion-icon>
+    <ion-col [size]="12"
+             [sizeSm]="getButtonSize('restart')"
+             [sizeMd]="getButtonSize('restart')"
+             [sizeLg]="getButtonSize('restart')"
+             [sizeXl]="getButtonSize('restart')">
+      <ion-button [color]="getButtonColor('restart')"
+                  [expand]="'block'"
+                  [fill]="getButtonFill('restart')"
+                  (click)="reset()"
+                  [disabled]="disabled || isRandomizing">
+        <ion-icon [slot]="'icon-only'"
+                  [name]="getButtonIcon('restart')"
+                  [color]="'light'"></ion-icon>
 
-            <span class="ionic4-phone-spinner-button-text">Restart</span>
-          </ion-button>
-        </ion-col>
-      </ion-row>
+        <span class="ionic4-phone-spinner-button-text">{{ getButtonText('restart') }}</span>
+      </ion-button>
     </ion-col>
   </ion-row>
 </ion-list>
