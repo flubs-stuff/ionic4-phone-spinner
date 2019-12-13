@@ -362,7 +362,9 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
 
           const toBeReduced = this.getRandomItem(this.buttonTextOptions);
 
-          this.buttons[toBeReduced].size = this.buttons[toBeReduced].size - 1;
+          if (this.buttons[toBeReduced].size > 1) {
+            this.buttons[toBeReduced].size = this.buttons[toBeReduced].size - 1;
+          }
         }
       }
     }
