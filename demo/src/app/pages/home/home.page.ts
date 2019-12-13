@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 
-import {Ionic4PhoneSpinnerOptions, LockOptions} from '@flubs/ionic4-phone-spinner';
+import {ButtonOptions, Ionic4PhoneSpinnerOptions, LockOptions} from '@flubs/ionic4-phone-spinner';
 
 @Component({
   selector:    'home-page',
@@ -42,6 +42,16 @@ export class HomePage {
       LockOptions.DIFFERENT
     ];
 
+    this.badOptions.buttons = [
+      ButtonOptions.CHANGE_AFTER_RESTART,
+      ButtonOptions.CHANGE_AFTER_SHUFFLE,
+      ButtonOptions.CHANGE_AFTER_UNLOCK_ALL,
+      ButtonOptions.UPDATE_COLOR,
+      ButtonOptions.UPDATE_ICON,
+      ButtonOptions.UPDATE_POSITION,
+      ButtonOptions.UPDATE_SIZE
+    ];
+
     this.badderOptions = new Ionic4PhoneSpinnerOptions();
 
     this.badderOptions.locks = [
@@ -53,6 +63,17 @@ export class HomePage {
     this.badderOptions.unlocks = [
       LockOptions.DIFFERENT,
       LockOptions.SHUFFLE
+    ];
+
+    this.badderOptions.buttons = [
+      ButtonOptions.CHANGE_AFTER_RESTART,
+      ButtonOptions.CHANGE_AFTER_SHUFFLE,
+      ButtonOptions.CHANGE_AFTER_UNLOCK_ALL,
+      ButtonOptions.CHANGE_CONTINUOUSLY,
+      ButtonOptions.UPDATE_COLOR,
+      ButtonOptions.UPDATE_ICON,
+      ButtonOptions.UPDATE_POSITION,
+      ButtonOptions.UPDATE_SIZE
     ];
 
     this.baddestOptions = new Ionic4PhoneSpinnerOptions();
@@ -71,6 +92,21 @@ export class HomePage {
       LockOptions.LIAR,
       LockOptions.REVERT,
       LockOptions.SHUFFLE
+    ];
+
+    this.baddestOptions.buttons = [
+      ButtonOptions.ALLOW_RANDOM_COLORS,
+      ButtonOptions.ALLOW_RANDOM_ICONS,
+      ButtonOptions.CHANGE_AFTER_UNLOCK_ALL,
+      ButtonOptions.CHANGE_AFTER_LOCK,
+      ButtonOptions.CHANGE_AFTER_RESTART,
+      ButtonOptions.CHANGE_AFTER_SHUFFLE,
+      ButtonOptions.CHANGE_AFTER_UNLOCK,
+      ButtonOptions.UPDATE_COLOR,
+      ButtonOptions.UPDATE_FILL,
+      ButtonOptions.UPDATE_ICON,
+      ButtonOptions.UPDATE_POSITION,
+      ButtonOptions.UPDATE_SIZE
     ];
 
     this.baddestOptions.shufflesPerClick = 10;
@@ -93,6 +129,23 @@ export class HomePage {
       LockOptions.LIAR,
       LockOptions.REVERT,
       LockOptions.SHUFFLE
+    ];
+
+    this.fuOptions.buttons = [
+      ButtonOptions.ALLOW_RANDOM_COLORS,
+      ButtonOptions.ALLOW_RANDOM_ICONS,
+      ButtonOptions.CHANGE_AFTER_UNLOCK_ALL,
+      ButtonOptions.CHANGE_AFTER_LOCK,
+      ButtonOptions.CHANGE_AFTER_RESTART,
+      ButtonOptions.CHANGE_AFTER_SHUFFLE,
+      ButtonOptions.CHANGE_AFTER_UNLOCK,
+      ButtonOptions.CHANGE_CONTINUOUSLY,
+      ButtonOptions.UPDATE_COLOR,
+      ButtonOptions.UPDATE_FILL,
+      ButtonOptions.UPDATE_ICON,
+      ButtonOptions.UPDATE_POSITION,
+      ButtonOptions.UPDATE_SIZE,
+      ButtonOptions.UPDATE_TEXT
     ];
 
     this.fuOptions.shufflesPerClick = 20;
