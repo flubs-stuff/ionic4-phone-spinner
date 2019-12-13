@@ -242,8 +242,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="168"
-                            class="link-to-prism">demo/src/app/pages/home/home.page.ts:168</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="167"
+                            class="link-to-prism">demo/src/app/pages/home/home.page.ts:167</a></div>
                 </td>
             </tr>
 
@@ -312,8 +312,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="157"
-                            class="link-to-prism">demo/src/app/pages/home/home.page.ts:157</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="156"
+                            class="link-to-prism">demo/src/app/pages/home/home.page.ts:156</a></div>
                 </td>
             </tr>
 
@@ -351,8 +351,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="164"
-                            class="link-to-prism">demo/src/app/pages/home/home.page.ts:164</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="163"
+                            class="link-to-prism">demo/src/app/pages/home/home.page.ts:163</a></div>
                 </td>
             </tr>
 
@@ -758,7 +758,6 @@ export class HomePage {
       ButtonOptions.CHANGE_AFTER_SHUFFLE,
       ButtonOptions.CHANGE_AFTER_UNLOCK,
       ButtonOptions.UPDATE_COLOR,
-      ButtonOptions.UPDATE_FILL,
       ButtonOptions.UPDATE_ICON,
       ButtonOptions.UPDATE_POSITION,
       ButtonOptions.UPDATE_SIZE
@@ -849,8 +848,7 @@ export class HomePage {
 
   &lt;ion-item-divider&gt;&lt;/ion-item-divider&gt;
 
-  &lt;ion-card *ngIf&#x3D;&quot;difficulty &#x3D;&#x3D;&#x3D; &#x27;not good&#x27;&quot;
-            style&#x3D;&quot;height: 100%;&quot;&gt;
+  &lt;ion-card *ngIf&#x3D;&quot;difficulty &#x3D;&#x3D;&#x3D; &#x27;not good&#x27;&quot;&gt;
     &lt;ion-title class&#x3D;&quot;ion-text-center ion-margin ion-padding&quot;
                style&#x3D;&quot;width: 100%;&quot;&gt;
       Enter your phone number
@@ -877,8 +875,7 @@ export class HomePage {
 
   &lt;ion-item-divider&gt;&lt;/ion-item-divider&gt;
 
-  &lt;ion-card *ngIf&#x3D;&quot;difficulty &#x3D;&#x3D;&#x3D; &#x27;bad&#x27;&quot;
-            style&#x3D;&quot;height: 100%;&quot;&gt;
+  &lt;ion-card *ngIf&#x3D;&quot;difficulty &#x3D;&#x3D;&#x3D; &#x27;bad&#x27;&quot;&gt;
     &lt;ion-title class&#x3D;&quot;ion-text-center ion-margin ion-padding&quot;
                style&#x3D;&quot;width: 100%;&quot;&gt;
       Enter your phone number
@@ -906,8 +903,7 @@ export class HomePage {
     &lt;/ion-card-content&gt;
   &lt;/ion-card&gt;
 
-  &lt;ion-card *ngIf&#x3D;&quot;difficulty &#x3D;&#x3D;&#x3D; &#x27;badder&#x27;&quot;
-            style&#x3D;&quot;height: 100%;&quot;&gt;
+  &lt;ion-card *ngIf&#x3D;&quot;difficulty &#x3D;&#x3D;&#x3D; &#x27;badder&#x27;&quot;&gt;
     &lt;ion-title class&#x3D;&quot;ion-text-center ion-margin ion-padding&quot;
                style&#x3D;&quot;width: 100%;&quot;&gt;
       Try to enter your phone number
@@ -937,8 +933,7 @@ export class HomePage {
     &lt;/ion-card-content&gt;
   &lt;/ion-card&gt;
 
-  &lt;ion-card *ngIf&#x3D;&quot;difficulty &#x3D;&#x3D;&#x3D; &#x27;baddest&#x27;&quot;
-            style&#x3D;&quot;height: 100%;&quot;&gt;
+  &lt;ion-card *ngIf&#x3D;&quot;difficulty &#x3D;&#x3D;&#x3D; &#x27;baddest&#x27;&quot;&gt;
     &lt;ion-title class&#x3D;&quot;ion-text-center ion-margin ion-padding&quot;
                style&#x3D;&quot;width: 100%;&quot;&gt;
       You will never enter your phone number
@@ -968,8 +963,7 @@ export class HomePage {
     &lt;/ion-card-content&gt;
   &lt;/ion-card&gt;
 
-  &lt;ion-card *ngIf&#x3D;&quot;difficulty &#x3D;&#x3D;&#x3D; &#x27;satan&#x27;&quot;
-            style&#x3D;&quot;height: 100%;&quot;&gt;
+  &lt;ion-card *ngIf&#x3D;&quot;difficulty &#x3D;&#x3D;&#x3D; &#x27;satan&#x27;&quot;&gt;
     &lt;ion-title class&#x3D;&quot;ion-text-center ion-margin ion-padding&quot;
                style&#x3D;&quot;width: 100%;&quot;&gt;
       Good luck, fucker!
@@ -1042,7 +1036,7 @@ export class HomePage {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar>    <ion-title class="ion-text-center">      @flubs/ionic4-phone-spinner    </ion-title>  </ion-toolbar></ion-header><ion-content>  <ion-segment (ionChange)="difficulty = $event.detail?.value">    <ion-segment-button *ngFor="let d of difficulties"                        [value]="d"                        [checked]="d === difficulty">      <ion-label>        {{ d | titlecase }}      </ion-label>    </ion-segment-button>  </ion-segment>  <ion-item-divider></ion-item-divider>  <ion-card *ngIf="difficulty === \'not good\'"            style="height: 100%;">    <ion-title class="ion-text-center ion-margin ion-padding"               style="width: 100%;">      Enter your phone number    </ion-title>    <ion-card-subtitle class="ion-padding-horizontal">      Difficulties    </ion-card-subtitle>    <ul class="ion-margin-horizontal ion-padding-horizontal">      <li>Shuffle animation lasts 1 second.</li>    </ul>    <ion-item-divider></ion-item-divider>    <ion-card-content>      <ionic4-phone-spinner              [number]="value"              [options]="aightOptions"              (change)="change($event)">      </ionic4-phone-spinner>    </ion-card-content>  </ion-card>  <ion-item-divider></ion-item-divider>  <ion-card *ngIf="difficulty === \'bad\'"            style="height: 100%;">    <ion-title class="ion-text-center ion-margin ion-padding"               style="width: 100%;">      Enter your phone number    </ion-title>    <ion-card-subtitle class="ion-padding-horizontal">      Difficulties    </ion-card-subtitle>    <ul class="ion-margin-horizontal ion-padding-horizontal">      <li>Shuffle animation lasts 1 second.</li>      <li>Lock button sometimes ignores clicks.</li>      <li>The incorrect digit locks/unlocks on click.</li>      <li>Buttons change color, icon, position and size after the user shuffles, restarts, or unlocks all buttons.</li>    </ul>    <ion-item-divider></ion-item-divider>    <ion-card-content>      <ionic4-phone-spinner              [number]="value"              [options]="badOptions"              (change)="change($event)">      </ionic4-phone-spinner>    </ion-card-content>  </ion-card>  <ion-card *ngIf="difficulty === \'badder\'"            style="height: 100%;">    <ion-title class="ion-text-center ion-margin ion-padding"               style="width: 100%;">      Try to enter your phone number    </ion-title>    <ion-card-subtitle class="ion-padding-horizontal">      Difficulties    </ion-card-subtitle>    <ul class="ion-margin-horizontal ion-padding-horizontal">      <li>Shuffle animation lasts 1 second.</li>      <li>Lock/Unlock button sometimes ignores clicks.</li>      <li>The incorrect digit locks/unlocks on click.</li>      <li>Sometimes the lock is not actually locked.</li>      <li>Locks automatically unlock after each shuffle.</li>      <li>Buttons change color, icon, position and size after the user shuffles, restarts, or unlocks all buttons and randomly.</li>    </ul>    <ion-item-divider></ion-item-divider>    <ion-card-content>      <ionic4-phone-spinner              [number]="value"              [options]="badderOptions"              (change)="change($event)">      </ionic4-phone-spinner>    </ion-card-content>  </ion-card>  <ion-card *ngIf="difficulty === \'baddest\'"            style="height: 100%;">    <ion-title class="ion-text-center ion-margin ion-padding"               style="width: 100%;">      You will never enter your phone number    </ion-title>    <ion-card-subtitle class="ion-padding-horizontal">      Difficulties    </ion-card-subtitle>    <ul class="ion-margin-horizontal ion-padding-horizontal">      <li>Shuffle animation lasts 2 seconds.</li>      <li>Lock/Unlock button sometimes ignores clicks.</li>      <li>The incorrect digit locks/unlocks on click.</li>      <li>Sometimes the lock/unlock is not actually unlocked/locked.</li>      <li>Locks/unlocks randomly change state.</li>      <li>Lock toggles after each shuffle.</li>      <li>Buttons change position, size, and to even more random colors and icons after all user actions and randomly.</li>    </ul>    <ion-item-divider></ion-item-divider>    <ion-card-content>      <ionic4-phone-spinner              [number]="value"              [options]="baddestOptions"              (change)="change($event)">      </ionic4-phone-spinner>    </ion-card-content>  </ion-card>  <ion-card *ngIf="difficulty === \'satan\'"            style="height: 100%;">    <ion-title class="ion-text-center ion-margin ion-padding"               style="width: 100%;">      Good luck, fucker!    </ion-title>    <ion-card-subtitle class="ion-padding-horizontal">      Difficulties    </ion-card-subtitle>    <ul class="ion-padding-horizontal ion-margin-horizontal">      <li>Shuffle animation lasts 2 seconds.</li>      <li>Lock/Unlock button sometimes ignores clicks.</li>      <li>The incorrect digit locks/unlocks on click.</li>      <li>Sometimes the lock/unlock is not actually unlocked/locked.</li>      <li>Locks/unlocks randomly change state.</li>      <li>Lock toggles after each shuffle.</li>      <li>The locks must be locked in order (left to right).</li>      <li>Buttons change position, size, and to even more random colors and icons after all user actions and randomly.</li>      <li>...Oh and button labels lie and sometimes go mostly transparent.</li>    </ul>    <ion-item-divider></ion-item-divider>    <ion-card-content>      <ionic4-phone-spinner              [number]="value"              [options]="satanOptions"              (change)="change($event)">      </ionic4-phone-spinner>    </ion-card-content>  </ion-card></ion-content></div>'
+        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar>    <ion-title class="ion-text-center">      @flubs/ionic4-phone-spinner    </ion-title>  </ion-toolbar></ion-header><ion-content>  <ion-segment (ionChange)="difficulty = $event.detail?.value">    <ion-segment-button *ngFor="let d of difficulties"                        [value]="d"                        [checked]="d === difficulty">      <ion-label>        {{ d | titlecase }}      </ion-label>    </ion-segment-button>  </ion-segment>  <ion-item-divider></ion-item-divider>  <ion-card *ngIf="difficulty === \'not good\'">    <ion-title class="ion-text-center ion-margin ion-padding"               style="width: 100%;">      Enter your phone number    </ion-title>    <ion-card-subtitle class="ion-padding-horizontal">      Difficulties    </ion-card-subtitle>    <ul class="ion-margin-horizontal ion-padding-horizontal">      <li>Shuffle animation lasts 1 second.</li>    </ul>    <ion-item-divider></ion-item-divider>    <ion-card-content>      <ionic4-phone-spinner              [number]="value"              [options]="aightOptions"              (change)="change($event)">      </ionic4-phone-spinner>    </ion-card-content>  </ion-card>  <ion-item-divider></ion-item-divider>  <ion-card *ngIf="difficulty === \'bad\'">    <ion-title class="ion-text-center ion-margin ion-padding"               style="width: 100%;">      Enter your phone number    </ion-title>    <ion-card-subtitle class="ion-padding-horizontal">      Difficulties    </ion-card-subtitle>    <ul class="ion-margin-horizontal ion-padding-horizontal">      <li>Shuffle animation lasts 1 second.</li>      <li>Lock button sometimes ignores clicks.</li>      <li>The incorrect digit locks/unlocks on click.</li>      <li>Buttons change color, icon, position and size after the user shuffles, restarts, or unlocks all buttons.</li>    </ul>    <ion-item-divider></ion-item-divider>    <ion-card-content>      <ionic4-phone-spinner              [number]="value"              [options]="badOptions"              (change)="change($event)">      </ionic4-phone-spinner>    </ion-card-content>  </ion-card>  <ion-card *ngIf="difficulty === \'badder\'">    <ion-title class="ion-text-center ion-margin ion-padding"               style="width: 100%;">      Try to enter your phone number    </ion-title>    <ion-card-subtitle class="ion-padding-horizontal">      Difficulties    </ion-card-subtitle>    <ul class="ion-margin-horizontal ion-padding-horizontal">      <li>Shuffle animation lasts 1 second.</li>      <li>Lock/Unlock button sometimes ignores clicks.</li>      <li>The incorrect digit locks/unlocks on click.</li>      <li>Sometimes the lock is not actually locked.</li>      <li>Locks automatically unlock after each shuffle.</li>      <li>Buttons change color, icon, position and size after the user shuffles, restarts, or unlocks all buttons and randomly.</li>    </ul>    <ion-item-divider></ion-item-divider>    <ion-card-content>      <ionic4-phone-spinner              [number]="value"              [options]="badderOptions"              (change)="change($event)">      </ionic4-phone-spinner>    </ion-card-content>  </ion-card>  <ion-card *ngIf="difficulty === \'baddest\'">    <ion-title class="ion-text-center ion-margin ion-padding"               style="width: 100%;">      You will never enter your phone number    </ion-title>    <ion-card-subtitle class="ion-padding-horizontal">      Difficulties    </ion-card-subtitle>    <ul class="ion-margin-horizontal ion-padding-horizontal">      <li>Shuffle animation lasts 2 seconds.</li>      <li>Lock/Unlock button sometimes ignores clicks.</li>      <li>The incorrect digit locks/unlocks on click.</li>      <li>Sometimes the lock/unlock is not actually unlocked/locked.</li>      <li>Locks/unlocks randomly change state.</li>      <li>Lock toggles after each shuffle.</li>      <li>Buttons change position, size, and to even more random colors and icons after all user actions and randomly.</li>    </ul>    <ion-item-divider></ion-item-divider>    <ion-card-content>      <ionic4-phone-spinner              [number]="value"              [options]="baddestOptions"              (change)="change($event)">      </ionic4-phone-spinner>    </ion-card-content>  </ion-card>  <ion-card *ngIf="difficulty === \'satan\'">    <ion-title class="ion-text-center ion-margin ion-padding"               style="width: 100%;">      Good luck, fucker!    </ion-title>    <ion-card-subtitle class="ion-padding-horizontal">      Difficulties    </ion-card-subtitle>    <ul class="ion-padding-horizontal ion-margin-horizontal">      <li>Shuffle animation lasts 2 seconds.</li>      <li>Lock/Unlock button sometimes ignores clicks.</li>      <li>The incorrect digit locks/unlocks on click.</li>      <li>Sometimes the lock/unlock is not actually unlocked/locked.</li>      <li>Locks/unlocks randomly change state.</li>      <li>Lock toggles after each shuffle.</li>      <li>The locks must be locked in order (left to right).</li>      <li>Buttons change position, size, and to even more random colors and icons after all user actions and randomly.</li>      <li>...Oh and button labels lie and sometimes go mostly transparent.</li>    </ul>    <ion-item-divider></ion-item-divider>    <ion-card-content>      <ionic4-phone-spinner              [number]="value"              [options]="satanOptions"              (change)="change($event)">      </ionic4-phone-spinner>    </ion-card-content>  </ion-card></ion-content></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HomePage', 'selector': 'home-page'},{'name': 'Ionic4PhoneSpinnerComponent', 'selector': 'ionic4-phone-spinner'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HomePage'};
