@@ -1,10 +1,11 @@
 import {Component, EventEmitter, forwardRef, Input, Output} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
-import {ButtonOptions} from '../models/button-options.model';
+import {ButtonAttributesCollection} from '../models/button-attributes-collection.model';
 import {Digit} from '../models/digit.model';
 import {LockOptions} from '../models/lock-options.model';
 import {Ionic4PhoneSpinnerOptions} from '../models/ionic4-phone-spinner.model';
+import {ButtonOptions} from '../models/button-options.model';
 
 @Component({
   selector:    'ionic4-phone-spinner',
@@ -21,8 +22,8 @@ import {Ionic4PhoneSpinnerOptions} from '../models/ionic4-phone-spinner.model';
   ]
 })
 export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
-  public buttons:ButtonOptions = new ButtonOptions();
-  public defaultButtons:ButtonOptions = new ButtonOptions();
+  public buttons:ButtonAttributesCollection = new ButtonAttributesCollection();
+  public defaultButtons:ButtonAttributesCollection = new ButtonAttributesCollection();
 
   public buttonTextOptions = [
     'shuffle',
@@ -40,10 +41,10 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
   private _propagateChange:any = () => {};
 
   @Input()
-  set buttonOptions(buttonOptions:ButtonOptions) {
+  set buttonOptions(buttonOptions:ButtonAttributesCollection) {
     if (typeof buttonOptions !== 'undefined') {
-      this.buttons = new ButtonOptions();
-      this.defaultButtons = new ButtonOptions();
+      this.buttons = new ButtonAttributesCollection();
+      this.defaultButtons = new ButtonAttributesCollection();
     }
   }
 
@@ -111,8 +112,9 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
       this.numbers[i].isCorrectIcon = this.getIsLiar(i);
     }
 
-    // TODO: Check Settings
-    this.updateButtons();
+    if (this.options.buttons.indexOf(ButtonOptions.CHANGE_AFTER_UNLOCK_ALL) !== -1) {
+      this.updateButtons();
+    }
   }
 
   getButtonColor(button):number {
@@ -156,8 +158,9 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
       }
     }
 
-    // TODO: Check Settings
-    this.updateButtons();
+    if (this.options.buttons.indexOf(ButtonOptions.CHANGE_AFTER_SHUFFLE) !== -1) {
+      this.updateButtons();
+    }
   }
 
   randomizeDigit(i:number, increment?:number):void {
@@ -206,16 +209,14 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
   restart():void {
     this.reset();
 
-    // TODO: Check Settings
-    this.updateButtons();
+    if (this.options.buttons.indexOf(ButtonOptions.CHANGE_AFTER_RESTART) !== -1) {
+      this.updateButtons();
+    }
   }
 
   toggleLock(i:number):void {
     // TODO: Add modal
     this.updateLock(i);
-
-    // TODO: Check settings
-    this.updateButtons();
   }
 
   updateButtons():void {
@@ -231,107 +232,116 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
   }
 
   updateButtonColor(button:string):void {
-    const changeColor = Math.random() < 0.3;
-    if (changeColor) {
-      let colors = ['success', 'warning', 'danger'];
+    if (this.options.buttons.indexOf(ButtonOptions.UPDATE_COLOR) !== -1) {
+      const changeColor = Math.random() < 0.3;
+      if (changeColor) {
+        let colors = ['success', 'warning', 'danger'];
 
-      let randomColor = Math.random() < 0.3;
-      if (randomColor) {
-        colors = colors.concat(
-            ['primary', 'secondary', 'tertiary', 'light', 'medium', 'dark']
-        );
+        if (this.options.buttons.indexOf(ButtonOptions.ALLOW_RANDOM_COLORS) !== -1) {
+          colors = colors.concat(
+              ['primary', 'secondary', 'tertiary', 'light', 'medium', 'dark']
+          );
+        }
+
+        this.buttons[button].color = this.getRandomItem(colors);
+      } else {
+        this.buttons[button].color = this.defaultButtons[button].color;
       }
-
-      this.buttons[button].color = this.getRandomItem(colors);
-    } else {
-      this.buttons[button].color = this.defaultButtons[button].color;
     }
   }
 
   updateButtonFill(button:string):void {
-    const changeFill = Math.random() < 0.3;
-    if (changeFill) {
-      const colors = ['clear', 'outline', 'solid'];
+    if (this.options.buttons.indexOf(ButtonOptions.UPDATE_FILL) !== -1) {
+      const changeFill = Math.random() < 0.3;
+      if (changeFill) {
+        const colors = ['clear', 'outline', 'solid'];
 
-      this.buttons[button].fill = this.getRandomItem(colors);
-    } else {
-      this.buttons[button].fill = this.defaultButtons[button].fill;
+        this.buttons[button].fill = this.getRandomItem(colors);
+      } else {
+        this.buttons[button].fill = this.defaultButtons[button].fill;
+      }
     }
   }
 
   updateButtonIcon(button:string):void {
-    const changeIcon = Math.random() < 0.3;
-    if (changeIcon) {
-      let icons = ['key', 'shuffle', 'nuclear'];
+    if (this.options.buttons.indexOf(ButtonOptions.UPDATE_ICON) !== -1) {
+      const changeIcon = Math.random() < 0.3;
+      if (changeIcon) {
+        let icons = ['key', 'shuffle', 'nuclear'];
 
-      let randomIcon = Math.random() < 0.3;
-      if (randomIcon) {
-        icons = icons.concat(
-            [
-              'airplane', 'alarm', 'american-football', 'baseball', 'basketball', 'beer', 'bicycle', 'build', 'bug', 'cart',
-              'cloud', 'color-fill', 'flash', 'flask', 'happy', 'heart', 'help-buoy', 'ice-cream', 'medal', 'lock',
-              'microphone', 'moon', 'notifications', 'nutrition', 'pin', 'sad', 'save', 'snow', 'train', 'wine'
-            ]
-        );
+        if (this.options.buttons.indexOf(ButtonOptions.ALLOW_RANDOM_ICONS) !== -1) {
+          icons = icons.concat(
+              [
+                'airplane', 'alarm', 'american-football', 'baseball', 'basketball', 'beer', 'bicycle', 'build', 'bug', 'cart',
+                'cloud', 'color-fill', 'flash', 'flask', 'happy', 'heart', 'help-buoy', 'ice-cream', 'medal', 'lock',
+                'microphone', 'moon', 'notifications', 'nutrition', 'pin', 'sad', 'save', 'snow', 'train', 'wine'
+              ]
+          );
+        }
+
+        this.buttons[button].icon = this.getRandomItem(icons);
+      } else {
+        this.buttons[button].icon = this.defaultButtons[button].icon;
       }
-
-      this.buttons[button].icon = this.getRandomItem(icons);
-    } else {
-      this.buttons[button].icon = this.defaultButtons[button].icon;
     }
   }
 
   updateButtonSizes():void {
-    const changeSize = Math.random() < 0.2;
-    if (changeSize) {
-      this.buttonTextOptions.forEach(
-        (button) => {
-          const sizes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    if (this.options.buttons.indexOf(ButtonOptions.UPDATE_SIZE) !== -1) {
+      const changeSize = Math.random() < 0.2;
+      if (changeSize) {
+        this.buttonTextOptions.forEach(
+            (button) => {
+              const sizes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-          this.buttons[button].size = this.getRandomItem(sizes);
+              this.buttons[button].size = this.getRandomItem(sizes);
+            }
+        );
+
+        let totalSize = 0;
+        this.buttonTextOptions.forEach(
+            (buttonTitle) => {
+              totalSize += this.buttons[buttonTitle].size;
+            }
+        );
+
+        while (totalSize > 12) {
+          totalSize--;
+
+          const toBeReduced = this.getRandomItem(this.buttonTextOptions);
+
+          this.buttons[toBeReduced].size = this.buttons[toBeReduced].size - 1;
         }
-      );
-
-      let totalSize = 0;
-      this.buttonTextOptions.forEach(
-        (buttonTitle) => {
-          totalSize += this.buttons[buttonTitle].size;
-        }
-      );
-
-      while (totalSize > 12) {
-        totalSize--;
-
-        const toBeReduced = this.getRandomItem(this.buttonTextOptions);
-
-        this.buttons[toBeReduced].size = this.buttons[toBeReduced].size - 1;
       }
     }
   }
 
   updateButtonText(button:string):void {
-    let changeText = Math.random() < 0.15;
-    if (changeText) {
-      this.buttons[button].text = this.getRandomItem(this.buttonTextOptions);
-    } else {
-      this.buttons[button].text = this.defaultButtons[button].text;
+    if (this.options.buttons.indexOf(ButtonOptions.UPDATE_TEXT) !== -1) {
+      let changeText = Math.random() < 0.15;
+      if (changeText) {
+        this.buttons[button].text = this.getRandomItem(this.buttonTextOptions);
+      } else {
+        this.buttons[button].text = this.defaultButtons[button].text;
+      }
     }
   }
 
   updateButtonOptionsContinuously():void {
-    // TODO: Check settings
-    let seconds = Math.random() * 10000;
-    if (seconds < 3000) {
-      seconds = 3000;
-    }
+    if (this.options.buttons.indexOf(ButtonOptions.CHANGE_CONTINUOUSLY) !== -1) {
+      let seconds = Math.random() * 10000;
+      if (seconds < 3000) {
+        seconds = 3000;
+      }
 
-    setTimeout(
-        () => {
-          this.updateButtons();
-          this.updateButtonOptionsContinuously();
-        },
-        seconds
-    );
+      setTimeout(
+          () => {
+            this.updateButtons();
+            this.updateButtonOptionsContinuously();
+          },
+          seconds
+      );
+    }
   }
 
   updateLock(i:number):void {
@@ -389,6 +399,13 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
       }
 
       this.numbers[i].toggleIsLocked();
+
+      if (
+          this.numbers[i].isLocked && this.options.buttons.indexOf(ButtonOptions.CHANGE_AFTER_LOCK) !== -1 ||
+          !this.numbers[i].isLocked && this.options.buttons.indexOf(ButtonOptions.CHANGE_AFTER_UNLOCK) !== -1
+      ) {
+        this.updateButtons();
+      }
 
       if (Math.random() < 0.25) {
         if (this.numbers[i].isLocked) {

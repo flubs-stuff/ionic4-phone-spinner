@@ -1,4 +1,4 @@
-export class ButtonOption {
+export class ButtonAttributes {
   color:string;
   fill:string;
   icon:string;
