@@ -34,7 +34,7 @@
 <p><a href="https://www.npmjs.com/package/@flubs/ionic4-phone-spinner/"><img src="https://img.shields.io/npm/l/@flubs/ionic4-phone-spinner.svg" alt="npm" class="img-responsive"></a>
 <a href="https://www.npmjs.com/package/@flubs/ionic4-phone-spinner"><img src="https://img.shields.io/npm/dt/@flubs/ionic4-phone-spinner.svg" alt="npm" class="img-responsive"></a>
 <a href="https://www.npmjs.com/package/@flubs/ionic4-phone-spinner"><img src="https://img.shields.io/npm/dm/@flubs/ionic4-phone-spinner.svg" alt="npm" class="img-responsive"></a></p>
-<p><img src="src/assets/images/example.gif" alt="" class="img-responsive"></p>
+<p><img src="example.gif" alt="" class="img-responsive"></p>
 <h2 id="index">Index</h2>
 <ul>
 <li><a href="#about">About</a></li>
@@ -44,24 +44,69 @@
 <li><a href="#contributing">Contributing</a></li>
 </ul>
 <h2 id="about">About</h2>
-<p>This is a bad phone number picker for Angular 2+. </p>
+<p>This is a bad phone number picker for Angular 2+ and Ionic 4+. </p>
 <ul>
 <li>Try out <a href="https://ionic4-phone-spinner.jrquick.com">the demo</a> to see it in action!</li>
 <li>Checkout my other Ionic/Angular projects: <a href="https://github.com/jrquick17/ionic4-tooltips">ionic4-tooltips</a> and <a href="https://github.com/flubs-stuff/ionic4-phone-spinner">ionic4-phone-spinner</a>!</li>
 <li>Visit <a href="https://jrquick.com">my website</a> for other cool projects!</li>
 </ul>
 <h2 id="setup">Setup</h2>
+<h3 id="install">Install</h3>
 <p>Install</p>
-<div><pre class="line-numbers"><code class="language-none">$ npm i ionic4-phone-spinner --save</code></pre></div><p>Import within your module</p>
-<h2 id="documentation">Documentation</h2>
+<div><pre class="line-numbers"><code class="language-none">npm i ionic4-phone-spinner --save</code></pre></div><h3 id="import">Import</h3>
+<p>Import within your module</p>
+<div><pre class="line-numbers"><code class="language-typescript">import {NgModule} from &#39;&#64;angular/core&#39;;
+import {IonicModule} from &#39;&#64;ionic/angular&#39;;
+
+import {Ionic4PhoneSpinnerModule} from &#39;&#64;flubs/ionic4-phone-spinner&#39;;
+
+&#64;NgModule({
+  ...
+  imports: [
+    ...
+    IonicModule,
+    Ionic4PhoneSpinnerModule,
+    ...
+  ]
+})
+export class MyBadAppModule {}</code></pre></div><h2 id="documentation">Documentation</h2>
+<h3 id="attributes">Attributes</h3>
+<ul>
+<li><code>[number]</code> - The phone number</li>
+<li><code>[options]</code> - Customize the lock options (<a href="#options">see below</a>)</li>
+<li><code>(change)</code> - Emitted when the phone number changes</li>
+</ul>
+<h4 id="options">Options</h4>
+<ul>
+<li><code>locks</code> - List of features to apply to the lock button (<a href="#lock-options">see below</a>)</li>
+<li><code>shuffleMilliseconds</code> - Number of milliseconds to wait between digit changes</li>
+<li><code>shufflesPerClick</code> - Number of times to change unlocked digits</li>
+<li><code>unlocks</code> - List of features to apply to the unlock button (<a href="#lock-options">see below</a>)</li>
+</ul>
+<h5 id="lock-options">Lock Options</h5>
+<ul>
+<li><code>DIFFERENT</code> - The incorrect digit locks/unlocks on click.</li>
+<li><code>IGNORE</code> - Lock/Unlock button sometimes ignores clicks</li>
+<li><code>LIAR</code> - Sometimes the lock/unlock is not actually unlocked/locked.</li>
+<li><code>ORDER</code> - The locks must be locked in order (left to right).</li>
+<li><code>REVERT</code> - Locks/unlocks randomly change state.</li>
+<li><code>REVERSE</code> - The locks must be locked in reverse order (right to left).</li>
+<li><code>SHUFFLE</code> - Lock toggles after each shuffle.</li>
+</ul>
 <h2 id="issues">Issues</h2>
-<p>If you find any issues feel free to open a request in <a href="https://github.com/flubs-stuff/ionic4-phone-spinner/issues">the Issues tab</a>. If I have the time I will try to solve any issues but cannot make any guarantees. Feel free to contribute yourself. But honestly, with this type of project are the bugs not just free features?</p>
+<p>You&#39;re welcome! Are bugs not features? You can <a href="https://github.com/flubs-stuff/ionic4-phone-spinner/pulls">submit a pull request</a> or <a href="https://github.com/flubs-stuff/ionic4-phone-spinner/issues">report an issue</a>.</p>
 <h3 id="demo">Demo</h3>
-<p>Run <code>npm install</code> to get packages required for the demo and then run <code>ionic serve</code> to run locally.</p>
+<ul>
+<li><a href="https://ionic4-phone-spinner.jrquick.com">Check it out here!</a></li>
+</ul>
+<h4 id="run">Run</h4>
+<p>Go to demo directory
+Run <code>npm install</code> to get the required packages 
+Run <code>ionic serve</code> to run the demo</p>
+<h2 id="contributing">Contributing</h2>
 <h3 id="thanks">Thanks</h3>
 <ul>
 <li><a href="https://github.com/jrquick17">jrquick17</a></li>
-<li><a href="https://github.com/mandhu">mandhu</a></li>
 </ul>
 
 
