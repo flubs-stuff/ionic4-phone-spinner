@@ -4,8 +4,13 @@ import {FormsModule} from '@angular/forms';
 
 import {IonicModule} from '@ionic/angular';
 
-export * from './ionic4-phone-spinner/ionic4-phone-spinner.component';
 export * from './pipes/range.pipe';
+
+export * from './ionic4-phone-spinner/ionic4-phone-spinner.component';
+
+export * from './models/button-attributes.model';
+export * from './models/button-attributes-collection.model';
+export * from './models/button-options.model';
 export * from './models/digit.model';
 export * from './models/lock-options.model';
 export * from './models/ionic4-phone-spinner.model';

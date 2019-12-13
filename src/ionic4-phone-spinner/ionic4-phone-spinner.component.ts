@@ -121,6 +121,10 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
     return this.buttons[button].icon;
   }
 
+  getButtonPush(button):number {
+    return this.buttons[button].push;
+  }
+
   getButtonSize(button):number {
     return this.buttons[button].size;
   }
@@ -206,6 +210,21 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
     }
   }
 
+  shuffleArray(array:any[]):any[] {
+    let currentIndex = array.length, temporaryValue, randomIndex;
+
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+  }
+
   toggleLock(i:number):void {
     // TODO: Add modal
     this.updateLock(i);
@@ -278,6 +297,47 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
     }
   }
 
+  updateButtonPositions():void {
+    if (this.options.buttons.indexOf(ButtonOptions.UPDATE_POSITION) !== -1) {
+      const changePosition = Math.random() < 0.2;
+      if (changePosition) {
+        const options = this.shuffleArray(this.buttonTextOptions);
+
+        for (let i = 0; i < 3; i++) {
+          const button = options[i];
+
+          if (
+              (i === 0 && button === 'shuffle') ||
+              (i === 1 && button === 'unlock') ||
+              (i === 2 && button === 'restart')
+          ) {
+            this.buttons[button].push = 0;
+          } else if (
+              (i === 1 && button === 'shuffle') ||
+              (i === 2 && button === 'unlock')
+          ) {
+            this.buttons[button].push = 4;
+          } else if (
+              (i === 2 && button === 'shuffle')
+          ) {
+            this.buttons[button].push = 8;
+          } else if (
+              (i === 0 && button === 'unlock') ||
+              (i === 1 && button === 'restart')
+          ) {
+            this.buttons[button].push = -4;
+          } else if (
+              (i === 0 && button === 'restart')
+          ) {
+            this.buttons[button].push = -8;
+          } else {
+            console.error('Unplanned for position.')
+          }
+        }
+      }
+    }
+  }
+
   updateButtonSizes():void {
     if (this.options.buttons.indexOf(ButtonOptions.UPDATE_SIZE) !== -1) {
       const changeSize = Math.random() < 0.2;
@@ -306,6 +366,8 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
         }
       }
     }
+
+    this.updateButtonPositions();
   }
 
   updateButtonText(button:string):void {

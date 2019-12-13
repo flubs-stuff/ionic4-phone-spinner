@@ -94,7 +94,8 @@
   </ion-row>
 
   <ion-row class="ionic4-phone-spinner">
-    <ion-col [size]="12"
+    <ion-col [push]="getButtonPush('shuffle')"
+             [size]="12"
              [sizeSm]="getButtonSize('shuffle')"
              [sizeMd]="getButtonSize('shuffle')"
              [sizeLg]="getButtonSize('shuffle')"
@@ -112,7 +113,8 @@
       </ion-button>
     </ion-col>
 
-    <ion-col [size]="12"
+    <ion-col [push]="getButtonPush('unlock')"
+             [size]="12"
              [sizeSm]="getButtonSize('unlock')"
              [sizeMd]="getButtonSize('unlock')"
              [sizeLg]="getButtonSize('unlock')"
@@ -130,7 +132,8 @@
       </ion-button>
     </ion-col>
 
-    <ion-col [size]="12"
+    <ion-col [push]="getButtonPush('restart')"
+             [size]="12"
              [sizeSm]="getButtonSize('restart')"
              [sizeMd]="getButtonSize('restart')"
              [sizeLg]="getButtonSize('restart')"

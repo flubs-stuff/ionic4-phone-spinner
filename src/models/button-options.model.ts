@@ -10,7 +10,7 @@ export enum ButtonOptions {
   UPDATE_COLOR = 'update-color', // Allow the button color to change
   UPDATE_FILL = 'update-fill', // Allow the button fill to change
   UPDATE_ICON = 'update-icon', // Allow the button icon to change
+  UPDATE_POSITION = 'update-position', // Allow the button position to change
   UPDATE_SIZE = 'update-size', // Allow the button size to change
   UPDATE_TEXT = 'update-text', // Allow the button text to change
-  SHUFFLE = 'shuffle', // Toggle state after each shuffle
 }
