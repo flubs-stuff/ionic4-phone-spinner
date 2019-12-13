@@ -312,9 +312,7 @@ export class Ionic4PhoneSpinnerComponent implements ControlValueAccessor {
   updateButtonText(button:string):void {
     let changeText = Math.random() < 0.15;
     if (changeText) {
-      // const texts = [4];
-      //
-      // this.buttons[button].text = this.getRandomItem(texts);
+      this.buttons[button].text = this.getRandomItem(this.buttonTextOptions);
     } else {
       this.buttons[button].text = this.defaultButtons[button].text;
     }
