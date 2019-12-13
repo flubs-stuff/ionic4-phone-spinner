@@ -1,6 +1,6 @@
 {
   "name": "@flubs/ionic4-phone-spinner",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "private": false,
   "scripts": {
     "build": "ng-packagr -p package.json && cp src/scss/ionic4-phone-spinner.scss dist/ionic4-phone-spinner.scss && cp -r src/assets dist/assets",
