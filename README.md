@@ -19,7 +19,7 @@
 This is a bad phone number picker for Angular 2+ and Ionic 4+. 
 
 * Try out [the demo](https://ionic4-phone-spinner.jrquick.com) to see it in action!
-* Checkout my other Ionic/Angular projects: [ionic4-tooltips](https://github.com/jrquick17/ionic4-tooltips) and [ionic4-phone-spinner](https://github.com/flubs-stuff/ionic4-phone-spinner)!
+* Checkout my other Ionic/Angular projects: [ionic4-tooltips](https://github.com/jrquick17/ionic4-tooltips) and [ionic4-auto-complete](https://github.com/jrquick17/ionic4-auto-complete)!
 * Visit [my website](https://jrquick.com) for other cool projects!
 
 ## Setup ##
